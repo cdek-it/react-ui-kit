@@ -2,5 +2,5 @@
 
 собрать тему
 ```shell
-npm run 
+npm run build-theme
 ```
