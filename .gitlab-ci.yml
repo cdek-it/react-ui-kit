@@ -1,0 +1,73 @@
+image: docker.cdek.ru/node:cypress-browsers-16.18.0-chrome90-ff88
+
+include:
+  - project: 'architecture/ci-scripts'
+    ref: 'master'
+    file: '/common/pipeline/.ci-scripts.yml'
+
+variables:
+  REGISTRY_URL: repo.cdek.ru
+  BUILD_DIR: "."
+  VERSION: "1.0"
+  DOCKER_HOST: "tcp://docker:2375"
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+  # Шаг поднятия версии, должен запускаться только для коммита в master
+  - version
+  # Шаги сборки проекта, запускается для feature веток и master
+  - build
+
+build-feature:
+  when: manual
+  stage: build
+  only:
+    - /^feature*/
+    - /^hotfix*/
+    - /^bugfix*/
+    - /^release*/
+  before_script:
+    - !reference [ '.ci-scripts', 'set_npmrc_registry' ]
+  script:
+    - npm i
+    - npm run dev-version
+    - npm run build
+    - !reference [ '.ci-scripts', 'set_npmrc_publish' ]
+    - !reference [ '.ci-scripts', 'npm_publish' ]
+  tags:
+    - docker
+
+build-release:
+  stage: build
+  only:
+    - tags
+  except:
+    - branches
+  before_script:
+    - !reference [ '.ci-scripts', 'set_npmrc_registry' ]
+  script:
+    - npm i
+    - npm run build
+    - !reference [ '.ci-scripts', 'set_npmrc_publish' ]
+    - !reference [ '.ci-scripts', 'npm_publish' ]
+  tags:
+    - docker
+# Поднятие версии релиза
+# Запускается для master где имя коммита !== 'X.X.X'
+# Шаг должен поднять версию и сделать коммит в пушем, после чего должны в новом pipeline запуститься шаги build-release и publish-release
+version-release:
+  stage: version
+  # Запускается для master где имя коммита !== 'X.X.X'
+  # То есть запуск будет происходить для коммитов слияния и других, и не будет для коммита повышения версии
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master" && $CI_COMMIT_TITLE !~ /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/'
+  script:
+    - git config user.email "gitlab@cdek.ru"
+    - git config user.name "Gitlab"
+    # Поднятие версии и создания коммита с тегом
+    - npm version patch --force
+    # push коммита с новой версией и тегом
+    - git push --tags -f https://$GITLAB_CI_USER:$PRIVATE_TOKEN@gitlab.cdek.ru/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git HEAD:$CI_COMMIT_REF_NAME
+  tags:
+    - docker
