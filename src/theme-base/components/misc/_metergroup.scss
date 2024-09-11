@@ -23,7 +23,9 @@
         }
         
         .p-metergroup-label {
-            margin-right: $inlineSpacing * 2;
+            color: $textSecondaryColor;
+            font-size: .875rem;
+            margin-right: $inlineSpacing;
         }
     
         .p-metergroup-label-icon {
@@ -31,6 +33,10 @@
             height: 1rem;
             margin-right: $inlineSpacing;
         }
+    }
+
+    .p-metergroup-label-list-vertical {
+        gap: calc($inlineSpacing / 2);
     }
 
 
@@ -50,11 +56,11 @@
         }
 
         .p-metergroup-label-list-start {
-            margin-bottom: $inlineSpacing * 2;
+            margin-bottom: $inlineSpacing;
         }
     
         .p-metergroup-label-list-end {
-            margin-top: $inlineSpacing * 2;
+            margin-top: $inlineSpacing;
         }
     }
 
@@ -75,7 +81,7 @@
         }
 
         .p-metergroup-label-list:not(.p-metergroup-label-list-start) {
-            margin-left: $inlineSpacing * 2;
+            margin-left: $inlineSpacing;
         }
     }
 }

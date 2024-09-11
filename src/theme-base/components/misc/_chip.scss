@@ -1,10 +1,22 @@
 @use 'sass:math';
 
 .p-chip {
-    background-color: $chipBg;
+    height: $chipHeight;
+    
     color: $chipTextColor;
+    
     border-radius: $chipBorderRadius;
-    padding: 0 nth($inputPadding, 2);
+    border: $chipBorder;
+
+    padding: $chipPadding;
+    background-color: $chipBg;
+    
+
+    &.p-disabled {
+        color: $disabledButtonTextColor;
+        border-color: $disabledButtonBorderColor;
+        background-color: $disabledButtonBg;
+    }
 
     .p-chip-text {
         line-height: 1.5;

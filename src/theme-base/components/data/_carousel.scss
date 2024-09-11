@@ -3,9 +3,7 @@
         .p-carousel-prev,
         .p-carousel-next {
             @include action-icon();
-            & {
-                margin: $inlineSpacing;
-            }
+            margin: $inlineSpacing;
         }
     }
 
@@ -14,8 +12,11 @@
 
         .p-carousel-indicator {
             margin-right: $inlineSpacing;
-            margin-bottom: $inlineSpacing;
-
+            
+            &:last-of-type {
+                margin-right: 0;
+            }
+           
             button {
                 background-color: $carouselIndicatorBg;
                 width: $carouselIndicatorWidth;
@@ -30,8 +31,8 @@
 
             &.p-highlight {
                 button {
-                    background: $highlightBg;
-                    color: $highlightTextColor;
+                    background: $carouselIndicatorActiveBg;
+                    color: $surface-ground;
                 }
             }
         }

@@ -110,8 +110,8 @@
 
                 &.p-highlight {
                     button {
-                        background: $highlightBg;
-                        color: $highlightTextColor;
+                        background: $galleriaIndicatorActiveBgOnItem;
+                        color: $surface-ground;
                     }
                 }
             }
@@ -121,10 +121,10 @@
     .p-galleria-thumbnail-container {
         background: $galleriaThumbnailContainerBg;
         padding: $galleriaThumbnailContainerPadding;
+        gap: $inlineSpacing;
 
         .p-galleria-thumbnail-prev,
         .p-galleria-thumbnail-next {
-            margin: $inlineSpacing;
             background-color: $galleriaThumbnailNavigatorBg;
             color: $galleriaThumbnailNavigatorColor;
             width: $galleriaThumbnailNavigatorWidth;
@@ -132,7 +132,7 @@
             transition: $actionIconTransition;
             border-radius: $galleriaThumbnailNavigatorBorderRadius;
 
-            &:hover {
+            &:not(.p-disabled):hover {
                 background: $galleriaThumbnailNavigatorHoverBg;
                 color: $galleriaThumbnailNavigatorHoverColor;
             }
@@ -140,6 +140,8 @@
 
         .p-galleria-thumbnail-item-content {
             transition: $listItemTransition;
+            width: 100%;
+            height: 100%;
             
             &:focus-visible {
                 @include focused();
@@ -150,4 +152,9 @@
 
 .p-galleria-mask {
     --maskbg: #{$galleriaMaskBg};
+}
+
+.p-galleria-thumbnail-item {
+    overflow: hidden;
+    height: 4rem;
 }

@@ -1,4 +1,7 @@
 .p-inputtext {
+    min-height: $buttonHeight;
+    line-height: $buttonHeight;
+
     font-family: var(--font-family);
     font-feature-settings: var(--font-feature-settings, normal);
     font-size: $inputTextFontSize;
@@ -23,26 +26,8 @@
         @include invalid-input();
     }
 
-    &.p-variant-filled {
-        background-color: $inputFilledBg;
-
-        &:enabled:hover {
-            background-color: $inputFilledHoverBg;
-        }
-
-        &:enabled:focus {
-            background-color: $inputFilledFocusBg;
-        }
-    }
-
-    &.p-inputtext-sm {
-        @include scaledFontSize($inputTextFontSize, $scaleSM);
-        @include scaledPadding($inputPadding, $scaleSM);
-    }
-
-    &.p-inputtext-lg {
-        @include scaledFontSize($inputTextFontSize, $scaleLG);
-        @include scaledPadding($inputPadding, $scaleLG);
+    &.p-disabled {
+        background: $disabledButtonBg;
     }
 }
 
@@ -70,32 +55,10 @@
 
 @include placeholder {
     color: $inputPlaceholderTextColor;
-}
-
-.p-input-filled {
-    .p-inputtext {
-        background-color: $inputFilledBg;
-
-        &:enabled:hover {
-            background-color: $inputFilledHoverBg;
-        }
-
-        &:enabled:focus {
-            background-color: $inputFilledFocusBg;
-        }
-    }
-}
-
-.p-inputtext-sm {
-    .p-inputtext {
-        @include scaledFontSize($inputTextFontSize, $scaleSM);
-        @include scaledPadding($inputPadding, $scaleSM);
-    }
+    opacity: .6;
 }
 
 .p-inputtext-lg {
-    .p-inputtext {
-        @include scaledFontSize($inputTextFontSize, $scaleLG);
-        @include scaledPadding($inputPadding, $scaleLG);
-    }
+    min-height: $buttonHeightLG;
+    line-height: $buttonHeightLG;
 }

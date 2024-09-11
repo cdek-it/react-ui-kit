@@ -1,0 +1,431 @@
+@import '../../../node_modules/primeflex/primeflex';
+
+// Typography
+// Title
+
+.title-h1 {
+    @include styleclass('text-4xl font-bold line-height-normal no-underline text-color');
+}
+.title-h2 {
+    @include styleclass('text-2xl font-bold line-height-normal no-underline text-color');
+}
+.title-h3 {
+    @include styleclass('text-xl font-bold line-height-normal no-underline text-color');
+}
+.title-h4 {
+    @include styleclass('text-lg font-bold line-height-normal no-underline text-color');
+}
+.title-h5 {
+    @include styleclass('text-base font-bold line-height-normal no-underline text-color');
+}
+.title-h6 {
+    @include styleclass('text-sm font-bold line-height-normal no-underline text-color');
+}
+
+// Body large bold
+// Paragraph: false
+
+.body-bold-lg {
+    @include styleclass('text-lg font-bold no-underline text-color');
+}
+.body-bold-lg-secondary {
+    @include styleclass('text-lg font-bold no-underline text-color-secondary');
+}
+.body-bold-lg-primary {
+    @include styleclass('text-lg font-bold no-underline text-primary');
+}
+
+.body-bold-lg-disabled {
+    @include styleclass('text-lg font-bold no-underline text-color opacity-60');
+}
+.body-bold-lg-secondary-disabled {
+    @include styleclass('text-lg font-bold no-underline text-color-secondary opacity-60');
+}
+.body-bold-lg-primary-disabled {
+    @include styleclass('text-lg font-bold no-underline text-primary opacity-60');
+}
+
+// Body large bold
+// Paragraph: true
+
+.body-bold-lg-paragraph {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-color');
+}
+.body-bold-lg-secondary-paragraph {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-color-secondary');
+}
+.body-bold-lg-primary-paragraph {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-primary');
+}
+
+.body-bold-lg-paragraph-disabled {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-color opacity-60');
+}
+.body-bold-lg-secondary-paragraph-disabled {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-bold-lg-primary-paragraph-disabled {
+    @include styleclass('text-lg font-bold line-height-3 no-underline text-primary opacity-60');
+}
+
+// Body large medium
+// Paragraph: false
+
+.body-medium-lg {
+    @include styleclass('text-lg font-medium no-underline text-color');
+}
+.body-medium-lg-secondary {
+    @include styleclass('text-lg font-medium no-underline text-color-secondary');
+}
+.body-medium-lg-primary {
+    @include styleclass('text-lg font-medium no-underline text-primary');
+}
+
+.body-medium-lg-disabled {
+    @include styleclass('text-lg font-medium no-underline text-color opacity-60');
+}
+.body-medium-lg-secondary-disabled {
+    @include styleclass('text-lg font-medium no-underline text-color-secondary opacity-60');
+}
+.body-medium-lg-primary-disabled {
+    @include styleclass('text-lg font-medium no-underline text-primary opacity-60');
+}
+
+// Body large medium
+// Paragraph: true
+
+.body-medium-lg-paragraph {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-color');
+}
+.body-medium-lg-secondary-paragraph {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-color-secondary');
+}
+.body-medium-lg-primary-paragraph {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-primary');
+}
+
+.body-medium-lg-paragraph-disabled {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-color opacity-60');
+}
+.body-medium-lg-secondary-paragraph-disabled {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-medium-lg-primary-paragraph-disabled {
+    @include styleclass('text-lg font-medium line-height-3 no-underline text-primary opacity-60');
+}
+
+// Body large regular
+// Paragraph: false
+
+.body-regular-lg {
+    @include styleclass('text-lg font-normal no-underline text-color');
+}
+.body-regular-lg-secondary {
+    @include styleclass('text-lg font-normal no-underline text-color-secondary');
+}
+.body-regular-lg-primary {
+    @include styleclass('text-lg font-normal no-underline text-primary');
+}
+
+.body-regular-lg-disabled {
+    @include styleclass('text-lg font-normal no-underline text-color opacity-60');
+}
+.body-regular-lg-secondary-disabled {
+    @include styleclass('text-lg font-normal no-underline text-color-secondary opacity-60');
+}
+.body-regular-lg-primary-disabled {
+    @include styleclass('text-lg font-normal no-underline text-primary opacity-60');
+}
+
+// Body large regular
+// Paragraph: true
+
+.body-regular-lg-paragraph {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-color');
+}
+.body-regular-lg-secondary-paragraph {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-color-secondary');
+}
+.body-regular-lg-primary-paragraph {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-primary');
+}
+
+.body-regular-lg-paragraph-disabled {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-color opacity-60');
+}
+.body-regular-lg-secondary-paragraph-disabled {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-regular-lg-primary-paragraph-disabled {
+    @include styleclass('text-lg font-normal line-height-3 no-underline text-primary opacity-60');
+}
+
+// Body base bold
+// Paragraph: false
+
+.body-bold-base {
+    @include styleclass('text-lg font-bold no-underline text-color');
+}
+.body-bold-base-secondary {
+    @include styleclass('text-base font-bold no-underline text-color-secondary');
+}
+.body-bold-base-primary {
+    @include styleclass('text-base font-bold no-underline text-primary');
+}
+
+.body-bold-base-disabled {
+    @include styleclass('text-base font-bold no-underline text-color opacity-60');
+}
+.body-bold-base-secondary-disabled {
+    @include styleclass('text-base font-bold no-underline text-color-secondary opacity-60');
+}
+.body-bold-base-primary-disabled {
+    @include styleclass('text-base font-bold no-underline text-primary opacity-60');
+}
+
+// Body base bold
+// Paragraph: true
+
+.body-bold-base-paragraph {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-color');
+}
+.body-bold-base-secondary-paragraph {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-color-secondary');
+}
+.body-bold-base-primary-paragraph {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-primary');
+}
+
+.body-bold-base-paragraph-disabled {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-color opacity-60');
+}
+.body-bold-base-secondary-paragraph-disabled {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-bold-base-primary-paragraph-disabled {
+    @include styleclass('text-base font-bold line-height-3 no-underline text-primary opacity-60');
+}
+
+// Body base medium
+// Paragraph: false
+
+.body-medium-base {
+    @include styleclass('text-lg font-bomediumo-underline text-color');
+}
+.body-medium-base-secondary {
+    @include styleclass('text-base font-medium no-underline text-color-secondary');
+}
+.body-medium-base-primary {
+    @include styleclass('text-base font-medium no-underline text-primary');
+}
+
+.body-medium-base-disabled {
+    @include styleclass('text-base font-medium no-underline text-color opacity-60');
+}
+.body-medium-base-secondary-disabled {
+    @include styleclass('text-base font-medium no-underline text-color-secondary opacity-60');
+}
+.body-medium-base-primary-disabled {
+    @include styleclass('text-base font-medium no-underline text-primary opacity-60');
+}
+
+// Body base medium
+// Paragraph: true
+
+.body-medium-base-paragraph {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-color');
+}
+.body-medium-base-secondary-paragraph {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-color-secondary');
+}
+.body-medium-base-primary-paragraph {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-primary');
+}
+
+.body-medium-base-paragraph-disabled {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-color opacity-60');
+}
+.body-medium-base-secondary-paragraph-disabled {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-medium-base-primary-paragraph-disabled {
+    @include styleclass('text-base font-medium line-height-3 no-underline text-primary opacity-60');
+}
+
+// Body base regular
+// Paragraph: false
+
+.body-regular-base {
+    @include styleclass('text-lg font-bonormalo-underline text-color');
+}
+.body-regular-base-secondary {
+    @include styleclass('text-base font-normal no-underline text-color-secondary');
+}
+.body-regular-base-primary {
+    @include styleclass('text-base font-normal no-underline text-primary');
+}
+
+.body-regular-base-disabled {
+    @include styleclass('text-base font-normal no-underline text-color opacity-60');
+}
+.body-regular-base-secondary-disabled {
+    @include styleclass('text-base font-normal no-underline text-color-secondary opacity-60');
+}
+.body-regular-base-primary-disabled {
+    @include styleclass('text-base font-normal no-underline text-primary opacity-60');
+}
+
+// Body base regular
+// Paragraph: true
+
+.body-regular-base-paragraph {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-color');
+}
+.body-regular-base-secondary-paragraph {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-color-secondary');
+}
+.body-regular-base-primary-paragraph {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-primary');
+}
+
+.body-regular-base-paragraph-disabled {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-color opacity-60');
+}
+.body-regular-base-secondary-paragraph-disabled {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-color-secondary opacity-60');
+}
+.body-regular-base-primary-paragraph-disabled {
+    @include styleclass('text-base font-normal line-height-3 no-underline text-primary opacity-60');
+}
+
+// Subtitle
+// Base: true
+
+.subtitle-base {
+    @include styleclass('text-base font-bold line-height-normal uppercase text-color');
+}
+.subtitle-base-secondary {
+    @include styleclass('text-base font-bold line-height-normal uppercase text-color-secondary');
+}
+.subtitle-base-primary {
+    @include styleclass('text-base font-bold line-height-normal uppercase text-primary');
+}
+
+// Subtitle
+// Base: false
+
+.subtitle-sm {
+    @include styleclass('text-sm font-bold line-height-normal uppercase text-color');
+}
+.subtitle-sm-secondary {
+    @include styleclass('text-sm font-bold line-height-normal uppercase text-color-secondary');
+}
+.subtitle-sm-primary {
+    @include styleclass('text-sm font-bold line-height-normal uppercase text-primary');
+}
+
+// Caption
+// Disabled: false
+
+.caption {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-color');
+}
+
+.caption-secondary {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-color-secondary');
+}
+
+.caption-primary {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-primary');
+}
+
+// Caption
+// Disabled: true
+
+.caption-disabled {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-color opacity-60');
+}
+
+.caption-secondary-disabled {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-color-secondary opacity-60');
+}
+
+.caption-primary-disabled {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-primary opacity-60');
+}
+
+// Service
+// Danger
+
+.service-danger-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-red-400');
+}
+
+.service-danger-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-red-400');
+}
+
+// Service
+// Warning
+
+.service-warning-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-orange-400');
+}
+
+.service-warning-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-orange-400');
+}
+
+// Service
+// Success
+
+.service-success-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-green-400');
+}
+
+.service-success-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-green-400');
+}
+
+// Service
+// Info
+
+.service-info-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-blue-400');
+}
+
+.service-info-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-blue-400');
+}
+
+// Service
+// Help
+
+.service-help-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-purple-400');
+}
+
+.service-help-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-purple-400');
+}
+
+// Anchor
+// Base: true
+.anchor-base {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-blue-400 hover:underline');
+}
+
+.anchor-base:visited {
+    @include styleclass('text-base font-normal line-height-normal no-underline text-purple-400 hover:underline');
+}
+
+// Anchor
+// Base: false
+
+.anchor-sm {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-blue-400 hover:underline');
+}
+
+.anchor-sm:visited {
+    @include styleclass('text-sm font-normal line-height-normal no-underline text-purple-400 hover:underline');
+}

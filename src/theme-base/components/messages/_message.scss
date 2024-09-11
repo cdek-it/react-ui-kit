@@ -1,4 +1,36 @@
+@use "sass:math";
+
+@mixin style-severity($color-background, $border, $color-icon) {
+    background: $color-background;
+    border: $border;
+
+    .p-message-wrapper {
+        border-left: $messageBorderWidth solid $color-icon;
+    }
+
+    .p-message-icon {
+        color: $color-icon;
+    }
+
+    .p-message-close {
+        color: $color-icon;
+        border: $border;
+
+        background: transparent;
+
+        &:hover {
+            color: $color-icon;
+            border-color: $color-icon;
+
+            box-shadow: $buttonHoverShadow;
+            transition: $formElementTransition;
+        }
+    }
+}
+
 .p-message {
+    overflow: hidden;
+
     margin: $messageMargin;
     border-radius: $borderRadius;
 
@@ -14,7 +46,7 @@
         transition: $actionIconTransition;
 
         &:hover {
-            background: rgba(255,255,255,.5);
+            background: rgba(255, 255, 255, 0.5);
         }
 
         &:focus-visible {
@@ -23,73 +55,46 @@
     }
 
     &.p-message-info {
-        background: $infoMessageBg;
-        border: $infoMessageBorder;
-        border-width: $messageBorderWidth;
-        color: $infoMessageTextColor;
-
-        .p-message-icon {
-            color: $infoMessageIconColor;
-        }
-
-        .p-message-close {
-            color: $infoMessageIconColor;
-        }
+        @include style-severity(
+            $color-background: $infoMessageBg, 
+            $border: $infoMessageBorder, 
+            $color-icon: $infoMessageIconColor
+        );
     }
 
     &.p-message-success {
-        background: $successMessageBg;
-        border: $successMessageBorder;
-        border-width: $messageBorderWidth;
-        color: $successMessageTextColor;
-
-        .p-message-icon {
-            color: $successMessageIconColor;
-        }
-
-        .p-message-close {
-            color: $successMessageIconColor;
-        }
+        @include style-severity(
+            $color-background: $successMessageBg, 
+            $border: $successMessageBorder, 
+            $color-icon: $successMessageIconColor
+        );
     }
 
     &.p-message-warn {
-        background: $warningMessageBg;
-        border: $warningMessageBorder;
-        border-width: $messageBorderWidth;
-        color: $warningMessageTextColor;
-
-        .p-message-icon {
-            color: $warningMessageIconColor;
-        }
-
-        .p-message-close {
-            color: $warningMessageIconColor;
-        }
+        @include style-severity(
+            $color-background: $warningMessageBg, 
+            $border: $warningMessageBorder, 
+            $color-icon: $warningMessageIconColor
+        );
     }
 
     &.p-message-error {
-        background: $errorMessageBg;
-        border: $errorMessageBorder;
-        border-width: $messageBorderWidth;
-        color: $errorMessageTextColor;
-
-        .p-message-icon {
-            color: $errorMessageIconColor;
-        }
-
-        .p-message-close {
-            color: $errorMessageIconColor;
-        }
+        @include style-severity(
+            $color-background: $dangerMessageBg, 
+            $border: $dangerMessageBorder, 
+            $color-icon: $dangerMessageIconColor
+        );
     }
 
     .p-message-text {
         font-size: $messageTextFontSize;
         font-weight: $messageTextFontWeight;
+        color: $messageTextColor;
     }
 
     .p-message-icon {
         font-size: $messageIconFontSize;
-        margin-right: $inlineSpacing;
+        margin-right: calc($inlineSpacing * 2);
 
         &.p-icon {
             width: $messageIconFontSize;
@@ -98,10 +103,15 @@
     }
 
     .p-message-summary {
-        font-weight: 700;
+        font-size: $messageTextSummaryFontSize;
+        font-weight: $messageTextSummaryFontWeight;
+        color: $messageTextSummaryColor;
+        margin-right: math.div($inlineSpacing, 2);
     }
 
     .p-message-detail {
-        margin-left: $inlineSpacing;
+        font-size: $messageTextDetailFontSize;
+        font-weight: $messageTextDetailFontWeight;
+        color: $messageTextDetailColor;
     }
 }

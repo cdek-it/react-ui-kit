@@ -3,24 +3,46 @@
 // core
 .p-chips {
     display: inline-flex;
+    height: min-content;
+}
+
+.p-disabled {
+    .p-chips-multiple-container{
+        background-color: $disabledButtonBg;
+    }
 }
 
 .p-chips-multiple-container {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+    outline-color: transparent;
+
     cursor: text;
     overflow: hidden;
+
+    height: min-content;
+
     display: flex;
-    align-items: center;
+    flex-grow: 1;
     flex-wrap: wrap;
+    align-items: center;
+    gap: math.div($inlineSpacing, 2);
+
+    margin: 0;
+
+    list-style-type: none;
+
+    &:has(.p-chips-token) {
+        padding: math.div($inlineSpacing, 2);
+    }
 }
 
 .p-chips-token {
     cursor: default;
+
     display: inline-flex;
     align-items: center;
     flex: 0 0 auto;
+
+    height: $chipHeight;
 }
 
 .p-chips-input-token {
@@ -61,20 +83,16 @@
         }
     }
 
-    .p-chips-multiple-container {
-        padding: math.div(nth($inputPadding, 1), 2) nth($inputPadding, 2);
-        outline-color: transparent;
+    .p-chips-multiple-container {        
 
         .p-chips-token {
-            padding: math.div(nth($inputPadding, 1), 2) nth($inputPadding, 2);
-            margin-right: $inlineSpacing;
+            padding: $chipPadding;
             background: $chipBg;
             color: $chipTextColor;
             border-radius: $chipBorderRadius;
 
             &.p-focus {
-                background: $chipFocusBg;
-                color: $chipFocusTextColor;
+                @include focused();
             }
 
             .p-chips-token-icon {
@@ -82,15 +100,21 @@
             }
         }
 
+        .p-chips-token + .p-chips-input-token {
+            padding: 0 $inlineSpacing;
+        }
+
         .p-chips-input-token {
             padding: math.div(nth($inputPadding, 1), 2) 0;
 
             input {
+                height: $chipHeight;
+                
                 font-family: var(--font-family);
                 font-feature-settings: var(--font-feature-settings, normal);
                 font-size: $inputTextFontSize;
                 color: $textColor;
-                padding: 0;
+
                 margin: 0;
             }
         }

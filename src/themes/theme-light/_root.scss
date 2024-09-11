@@ -1,0 +1,32 @@
+:root {
+	--font-family: #{$fontFamily};
+	--text-color: #{$textColor};
+	--text-color-secondary: #{$textSecondaryColor};
+	--primary-color: #{$primaryColor};
+	--primary-color-text: #{$primaryColorText};
+	--surface-0: #{$surface-0};
+	--surface-50: #{$surface-50};
+	--surface-100: #{$surface-100};
+	--surface-200: #{$surface-200};
+	--surface-300: #{$surface-300};
+	--surface-400: #{$surface-400};
+	--surface-500: #{$surface-500};
+	--surface-600: #{$surface-600};
+	--surface-700: #{$surface-700};
+	--surface-800: #{$surface-800};
+	--surface-900: #{$surface-900};
+	--content-padding: #{$panelContentPadding};
+	--inline-spacing: #{$inlineSpacing};
+	--border-radius: #{$borderRadius};
+	--surface-ground: #{$surface-ground};
+	--surface-section: #{$surface-section};
+	--surface-card: #{$surface-card};
+	--surface-overlay: #{$surface-overlay};
+	--surface-border: #{$surface-border};
+	--surface-hover: #{$surface-hover};
+	--focus-ring: #{$focusShadow};
+	--maskbg: #{$maskBg};
+	--highlight-bg: #{$highlightBg};
+	--highlight-text-color: #{$highlightTextColor};
+	color-scheme: #{$colorScheme};
+}

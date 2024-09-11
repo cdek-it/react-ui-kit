@@ -2,6 +2,16 @@
 	box-sizing: border-box;
 }
 
+html {
+    font-size: 14px;
+    font-family: var(--font-family);
+}
+
+::selection {
+    color: $highlightTextColor;
+    background-color: $highlightBg;
+}
+
 .p-component {
     font-family: var(--font-family);
     font-feature-settings: var(--font-feature-settings, normal);
@@ -12,9 +22,18 @@
 .p-component-overlay {
     background-color: $maskBg;
     transition-duration: $transitionDuration;
+    padding: .5rem;
 }
 
 .p-disabled, .p-component:disabled {
+    pointer-events: all;
+    cursor: not-allowed;
+
+    opacity: $disabledOpacity;
+    filter: grayscale(1);
+}
+
+.p-placeholder {
     opacity: $disabledOpacity;
 }
 

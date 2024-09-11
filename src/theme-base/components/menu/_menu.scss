@@ -1,33 +1,46 @@
 .p-menu {
-	padding: $verticalMenuPadding;
-	background: $menuBg;
-	color: $menuTextColor;
-	border: $menuBorder;
-	border-radius: $borderRadius;
-	width: $menuWidth;
+    [class*="header"] {
+        color: $submenuHeaderTextColor;
+        font-size: $submenuHeaderFontSize;
+        font-weight: $submenuHeaderFontWeight;
+        text-transform: uppercase;
 
-	.p-menuitem {
-		@include menuitem-link();
-	}
+        padding: $menuitemPadding;
 
-	&.p-menu-overlay {
-		background: $overlayMenuBg;
-		border: $overlayMenuBorder;
-		box-shadow: $overlayMenuShadow;
-	}
+        border: 1px solid transparent;
+        border-radius: $submenuHeaderBorderRadius;
 
-	.p-submenu-header {
-		margin: $submenuHeaderMargin;
-		padding: $submenuHeaderPadding;
-		color: $submenuHeaderTextColor;
-		background: $submenuHeaderBg;
-		font-weight: $submenuHeaderFontWeight;
-		border-top-right-radius: $submenuHeaderBorderRadius;
-		border-top-left-radius: $submenuHeaderBorderRadius;
-	}
+        background-color: $submenuHeaderBg;
 
-	.p-menu-separator {
-		border-top: $divider;
-		margin: $menuSeparatorMargin;
-	}
+        &[data-p-disabled="true"] {
+            color: $disabledButtonTextColor;
+
+            background-color: $disabledButtonBg;
+            border-color: $disabledButtonBorderColor;
+        }
+    }
+
+    @include menuitem();
+    @include menuitem-separator();
+
+    // Фикс стиля disabled
+    .p-menuitem[data-p-disabled="true"] {
+		.p-disabled {
+			opacity: $disabledOpacity; // Костыль на прозначность
+		}
+    }    
+}
+
+.p-menu-overlay {
+    min-width: $menuWidth;
+
+    border-radius: $borderRadius;
+    border: $overlayMenuBorder;
+
+    padding: $overlayMenuPadding;
+
+    background-color: $overlayMenuBg;
+    box-shadow: $overlayMenuShadow;
+
+    z-index: 2;
 }

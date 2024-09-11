@@ -9,6 +9,7 @@
 }
 
 .p-datepicker {
+	margin-top: $inputListPadding;
 	padding: $calendarPadding;
 	background: $calendarInlineBg;
 	color: $calendarTextColor;
@@ -38,6 +39,13 @@
 		.p-datepicker-prev,
 		.p-datepicker-next {
 			@include action-icon();
+			border: 1px solid transparent;
+
+			&.p-disabled {
+				color: $disabledButtonTextColor;
+				background: $disabledButtonBg;
+				border-color: $disabledButtonBorderColor;
+			}
 		}
 
 		.p-datepicker-title {
@@ -89,16 +97,22 @@
 					background: $highlightBg;
 				}
 
-				&:focus {
+				&:focus-visible {
 					@include focused();
 				}
 			}
 
 			&.p-datepicker-today {
 				> span {
-					background: $calendarCellDateTodayBg;
 					color: $calendarCellDateTodayTextColor;
+					font-weight: 700;
+
 					border-color: $calendarCellDateTodayBorderColor;
+					background: $calendarCellDateTodayBg;
+
+					&:not(.p-disabled):hover {
+						color: $calendarCellDateHoverText;
+					}
 
 					&.p-highlight {
 						color: $highlightTextColor;
@@ -111,7 +125,6 @@
 
 	.p-datepicker-buttonbar {
 		padding: $calendarButtonBarPadding;
-		border-top: $divider;
 
 		.p-button {
 			width: auto;
@@ -124,10 +137,6 @@
 
 		button {
 			@include action-icon();
-
-			&:last-child {
-				margin-top: 0.2em;
-			}
 		}
 
 		span {
@@ -137,6 +146,11 @@
 		> div {
 			padding: $calendarTimePickerElementPadding;
 		}
+	}
+
+	.p-hour-picker,
+	.p-minute-picker {
+		gap: .25rem;
 	}
 
 	&.p-datepicker-timeonly {
@@ -151,7 +165,7 @@
 		.p-monthpicker-month {
 			padding: $calendarCellDatePadding;
 			transition: $listItemTransition;
-			border-radius: $borderRadius;
+			border-radius: $calendarCellDateBorderRadius;
 
 			&.p-highlight {
 				color: $highlightTextColor;
@@ -166,7 +180,7 @@
 		.p-yearpicker-year {
 			padding: $calendarCellDatePadding;
 			transition: $listItemTransition;
-			border-radius: $borderRadius;
+			border-radius: $calendarCellDateBorderRadius;
 
 			&.p-highlight {
 				color: $highlightTextColor;
@@ -199,24 +213,41 @@
 			td {
 				span:not(.p-highlight):not(.p-disabled) {
 					&:hover {
+						color: $calendarCellDateHoverText;
 						background: $calendarCellDateHoverBg;
 					}
 
-					&:focus {
+					&:focus-visible {
 						@include focused();
 					}
+				}
+
+				span.p-highlight:hover {
+					background: $primaryColorHover;
 				}
 			}
 		}
 
 		.p-monthpicker {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .25rem;
+
 			.p-monthpicker-month {
+				flex-basis: 32.3%;
+				width: 100%;
+
 				&:not(.p-disabled) {
 					&:not(.p-highlight):hover {
+						color: $calendarCellDateHoverText;
 						background: $calendarCellDateHoverBg;
 					}
 
-					&:focus {
+					&.p-highlight:hover {
+						background: $primaryColorHover;
+					}
+
+					&:focus-visible {
 						@include focused();
 					}
 				}
@@ -224,13 +255,25 @@
 		}
 
 		.p-yearpicker {
+			display: flex;
+			flex-wrap: wrap;
+			gap: .25rem;
+
 			.p-yearpicker-year {
+				flex-basis: 32.3%;
+				width: 100%;
+
 				&:not(.p-disabled) {
 					&:not(.p-highlight):hover {
+						color: $calendarCellDateHoverText;
 						background: $calendarCellDateHoverBg;
 					}
 
-					&:focus {
+					&.p-highlight:hover {
+						background: $primaryColorHover;
+					}
+
+					&:focus-visible {
 						@include focused();
 					}
 				}
@@ -243,9 +286,7 @@
 	.p-datepicker {
 		table {
 			th,
-			td {
-				padding: $calendarCellDatePaddingSM;
-			}
+			td {}
 		}
 	}
 }

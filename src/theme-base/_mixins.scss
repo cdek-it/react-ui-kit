@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin icon-override($icon) {
 	&:before {
 		content: $icon;
@@ -8,17 +10,20 @@
 	outline: $focusOutline;
 	outline-offset: $focusOutlineOffset;
 	box-shadow: $focusShadow;
+
+	caret-color: $inputFocusBorderColor;
 }
 
 @mixin focused-inset() {
 	outline: $focusOutline;
 	outline-offset: $focusOutlineOffset;
 	box-shadow: inset $focusShadow;
+
+	caret-color: $inputFocusBorderColor;
 }
 
 @mixin focused-input() {
 	@include focused();
-	border-color: $inputFocusBorderColor;
 }
 
 @mixin focused-listitem() {
@@ -29,141 +34,160 @@
 
 @mixin invalid-input() {
 	border-color: $inputErrorBorderColor;
+	box-shadow: $focusShadowError;
 }
 
-@mixin menuitem-link {
-	> .p-menuitem-content {
-		color: $menuitemTextColor;
-		transition: $listItemTransition;
-		border-radius: $menuitemBorderRadius;
+@mixin menuitem {
+	// Стиль элемента по умолчанию
+	.p-menuitem {
+		width: 100%;
+		margin-top: $menuitemSpacing;
+
+		&:first-of-type {
+			margin-top: 0;
+		}
 
 		.p-menuitem-link {
-			color: $menuitemTextColor;
+			display: flex;
+			gap: $inlineSpacing;
+
 			padding: $menuitemPadding;
-			user-select: none;
+
+			border: 1px solid transparent;
+			border-radius: $menuitemBorderRadius;
+
+			background-color: transparent;
+
+			.p-menuitem-icon {
+				color: $menuitemTextColor;
+				font-size: $menuitemSubmenuIconFontSize;
+			}
 
 			.p-menuitem-text {
 				color: $menuitemTextColor;
 			}
 
-			.p-menuitem-icon {
-				color: $menuitemIconColor;
-				margin-right: $inlineSpacing;
+			.p-menuitem-text + .p-submenu-icon {
+				margin-left: auto;
 			}
 
 			.p-submenu-icon {
 				color: $menuitemIconColor;
+				font-size: $menuitemSubmenuIconFontSize;
+
+				transition: 0.18s;
 			}
 		}
 	}
+	// Стиль элемента по наведению
+	.p-menuitem:not([data-p-disabled="true"]) {
+		.p-menuitem-link:hover {
+			cursor: pointer;
+			background-color: $menuitemHoverBg;
 
-	&.p-highlight {
-		> .p-menuitem-content {
-			color: $menuitemTextActiveColor;
-			background: $menuitemActiveBg;
-
-			.p-menuitem-link {
-				.p-menuitem-text {
-					color: $menuitemTextActiveColor;
-				}
-
-				.p-menuitem-icon,
-				.p-submenu-icon {
-					color: $menuitemIconActiveColor;
-				}
+			.p-menuitem-icon {
+				color: $menuitemHoverTextColor;
 			}
-		}
 
-		&.p-focus {
-			> .p-menuitem-content {
-				background: $menuitemActiveFocusBg;
+			.p-menuitem-text {
+				color: $menuitemHoverTextColor;
+			}
+
+			.p-submenu-icon {
+				color: $menuitemHoverIconColor;
 			}
 		}
 	}
+	// Стиль элемента p-highlight
+	.p-menuitem[data-p-highlight="true"] {
+		& > .p-menuitem-content > .p-menuitem-link {
+			background-color: $menuitemActiveBg;
 
-	&:not(.p-highlight):not(.p-disabled) {
-		&.p-focus {
-			> .p-menuitem-content {
-				color: $menuitemTextFocusColor;
-				background: $menuitemFocusBg;
+			.p-menuitem-icon {
+				color: $menuitemActiveTextColor;
+			}
 
-				.p-menuitem-link {
-					.p-menuitem-text {
-						color: $menuitemTextFocusColor;
-					}
+			.p-menuitem-text {
+				color: $menuitemActiveTextColor;
+			}
 
-					.p-menuitem-icon,
-					.p-submenu-icon {
-						color: $menuitemIconFocusColor;
-					}
-				}
+			.p-submenu-icon {
+				color: $menuitemActiveIconColor;
 			}
 		}
 
-		> .p-menuitem-content {
-			&:hover {
-				color: $menuitemTextHoverColor;
-				background: $menuitemHoverBg;
+		& > .p-menuitem-content > .p-menuitem-link:hover {
+			background-color: $menuitemActiveHoverBg;
 
-				.p-menuitem-link {
-					.p-menuitem-text {
-						color: $menuitemTextHoverColor;
-					}
-
-					.p-menuitem-icon,
-					.p-submenu-icon {
-						color: $menuitemIconHoverColor;
-					}
-				}
+			.p-menuitem-icon {
+				color: $menuitemActiveTextColor;
 			}
+
+			.p-menuitem-text {
+				color: $menuitemActiveTextColor;
+			}
+
+			.p-submenu-icon {
+				color: $menuitemActiveIconColor;
+			}
+		}
+	}
+	// Стиль элемента p-focus
+	.p-menuitem[data-p-focused="true"]:not([data-p-highlight="true"]) {
+		& > .p-menuitem-content > .p-menuitem-link {
+			cursor: pointer;
+			background-color: $menuitemFocusBg;
+
+			.p-menuitem-icon {
+				color: $menuitemFocusTextColor;
+			}
+
+			.p-menuitem-text {
+				color: $menuitemFocusTextColor;
+			}
+
+			.p-submenu-icon {
+				color: $menuitemFocusIconColor;
+			}
+		}
+	}
+	// Стиль элемента в состоянии disabled
+	.p-menuitem[data-p-disabled="true"] {
+		.p-menuitem-link {
+			background-color: $disabledButtonBg;
+			border-color: $disabledButtonBorderColor;
+
+			.p-menuitem-icon {
+				color: $disabledButtonTextColor;
+			}
+
+			.p-menuitem-text {
+				color: $disabledButtonTextColor;
+			}
+
+			.p-submenu-icon {
+				color: $disabledButtonTextColor;
+			}
+		}
+	}
+	// Фикс стиля элемента в состоянии disabled
+	.p-menuitem[data-p-disabled="true"] {
+		.p-menuitem-content {
+			pointer-events: none;
+		}
+		.p-disabled {
+			pointer-events: none;
+			opacity: 1; // Костыль на прозначность
 		}
 	}
 }
 
-@mixin horizontal-rootmenuitem-link {
-	> .p-menuitem-content {
-		color: $horizontalMenuRootMenuitemTextColor;
-		transition: $listItemTransition;
-		border-radius: $horizontalMenuRootMenuitemBorderRadius;
+@mixin menuitem-separator {
+	.p-menuitem-separator {
+		height: 1px;
 
-		.p-menuitem-link {
-			padding: $horizontalMenuRootMenuitemPadding;
-			user-select: none;
-
-			.p-menuitem-text {
-				color: $horizontalMenuRootMenuitemTextColor;
-			}
-
-			.p-menuitem-icon {
-				color: $horizontalMenuRootMenuitemIconColor;
-				margin-right: $inlineSpacing;
-			}
-
-			.p-submenu-icon {
-				color: $horizontalMenuRootMenuitemIconColor;
-				margin-left: $inlineSpacing;
-			}
-		}
-	}
-
-	&:not(.p-highlight):not(.p-disabled) {
-		> .p-menuitem-content {
-			&:hover {
-				color: $horizontalMenuRootMenuitemTextHoverColor;
-				background: $horizontalMenuRootMenuitemHoverBg;
-
-				.p-menuitem-link {
-					.p-menuitem-text {
-						color: $horizontalMenuRootMenuitemTextHoverColor;
-					}
-
-					.p-menuitem-icon,
-					.p-submenu-icon {
-						color: $horizontalMenuRootMenuitemIconHoverColor;
-					}
-				}
-			}
-		}
+		border-bottom: $overlayMenuBorder;
+		margin-top: $menuitemSpacing;
 	}
 }
 
@@ -225,6 +249,12 @@
 
 	&:focus-visible {
 		@include focused();
+	}
+
+	&.p-disabled {
+		background: $disabledButtonBg;
+		border: 1px solid $disabledButtonBorderColor;
+		color: $disabledButtonTextColor;
 	}
 }
 

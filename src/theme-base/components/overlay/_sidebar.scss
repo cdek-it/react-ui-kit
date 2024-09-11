@@ -1,11 +1,15 @@
 .p-sidebar {
-    background: $overlayContentBg;
     color: $panelContentTextColor;
+
     border: $overlayContentBorder;
+    border-radius: $borderRadius;
+
     box-shadow: $overlayContainerShadow;
+    background: $overlayContentBg;
 
     .p-sidebar-header {
         padding: $panelHeaderPadding;
+        border-bottom: $panelHeaderBorder;
 
         .p-sidebar-close,
         .p-sidebar-icon {
@@ -18,6 +22,6 @@
     }
 
     .p-sidebar-content {
-        padding: $panelContentPadding;
+        padding: $dialogContentPadding;
     }
 }

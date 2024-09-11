@@ -4,6 +4,14 @@
     cursor: pointer;
     position: relative;
     user-select: none;
+
+    &.p-disabled {
+        cursor: not-allowed;
+        
+        color: $disabledButtonTextColor;
+        border-color: $disabledButtonBorderColor;
+        background: $disabledButtonBg;
+    }
 }
 
 .p-dropdown-clear-icon {
@@ -20,6 +28,9 @@
 }
 
 .p-dropdown-label {
+    height: min-content;
+    margin: auto 0;
+    
     display: block;
     white-space: nowrap;
     overflow: hidden;
@@ -54,12 +65,66 @@ input.p-dropdown-label {
 
 .p-dropdown-item {
     cursor: pointer;
-    font-weight: normal;
-    white-space: nowrap;
-    position: relative;
+
     overflow: hidden;
+    position: relative;
+
     display: flex;
     align-items: center;
+
+    font-weight: normal;
+    color: $inputListItemTextColor;
+    white-space: nowrap;
+    
+    margin: $inputListItemMargin;
+    padding: $inputListItemPadding;
+
+    border: $inputListItemBorder;
+    border-radius: $inputListItemBorderRadius;
+    
+    background: $inputListItemBg;
+    transition: $listItemTransition;
+    
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.p-highlight {
+        color: $highlightTextColor;
+        background: $highlightBg;
+
+        &.p-focus {
+            background: $menuitemActiveHoverBg;
+        }
+    }
+
+    &:not(.p-highlight):not(.p-disabled) {
+        &.p-focus {
+            color: $inputListItemHoverTextColor;
+            background: $inputListItemHoverBg;
+        }
+    }
+
+    &:not(.p-highlight).p-disabled {
+        color: $disabledButtonTextColor;
+        border-color: $disabledButtonBorderColor;
+        background: $disabledButtonBg;
+    }
+
+    &.p-disabled {
+        cursor: not-allowed;
+    }
+
+    .p-dropdown-check-icon {
+        position: relative;
+        margin-left: -1 * $inlineSpacing;
+        margin-right: $inlineSpacing;
+    }
 }
 
 .p-dropdown-item-group {
@@ -110,22 +175,6 @@ input.p-dropdown-label {
         @include focused-input();
     }
 
-    &.p-variant-filled {
-        background: $inputFilledBg;
-
-        &:not(.p-disabled):hover {
-            background-color: $inputFilledHoverBg;
-        }
-
-        &:not(.p-disabled).p-focus {
-            background-color: $inputFilledFocusBg;
-
-            .p-inputtext {
-                background-color: transparent;
-            }
-        }
-    }
-
     &.p-dropdown-clearable {
         .p-dropdown-label {
             padding-right: nth($inputPadding, 2) + $primeIconFontSize;
@@ -170,6 +219,7 @@ input.p-dropdown-label {
     color: $inputListTextColor;
     border: $inputOverlayBorder;
     border-radius: $borderRadius;
+    margin-top: $inputListPadding;
     box-shadow: $inputOverlayShadow;
 
     .p-dropdown-header {
@@ -195,46 +245,6 @@ input.p-dropdown-label {
     .p-dropdown-items {
         padding: $inputListPadding;
 
-        .p-dropdown-item {
-            margin: $inputListItemMargin;
-            padding: $inputListItemPadding;
-            border: $inputListItemBorder;
-            color: $inputListItemTextColor;
-            background: $inputListItemBg;
-            transition: $listItemTransition;
-            border-radius: $inputListItemBorderRadius;
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            &.p-highlight {
-                color: $highlightTextColor;
-                background: $highlightBg;
-
-                &.p-focus {
-                    background: $highlightFocusBg;
-                }
-            }
-
-            &:not(.p-highlight):not(.p-disabled) {
-                &.p-focus {
-                    color: $inputListItemTextHoverColor;
-                    background: $inputListItemHoverBg;
-                }
-            }
-
-            .p-dropdown-check-icon {
-                position: relative;
-                margin-left: -1 * $inlineSpacing;
-                margin-right: $inlineSpacing;
-            }
-        }
-
         .p-dropdown-item-group {
             margin: $submenuHeaderMargin;
             padding: $submenuHeaderPadding;
@@ -244,8 +254,10 @@ input.p-dropdown-label {
         }
 
         .p-dropdown-empty-message {
-            padding: $inputListItemPadding;
             color: $inputListItemTextColor;
+            text-align: center;
+
+            padding: $inputListItemPadding;            
             background: $inputListItemBg;
         }
     }
