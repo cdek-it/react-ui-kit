@@ -5,7 +5,7 @@
   "scripts": {
     "build": "npm run clean && npm run cp && npm run build-themes",
     "build-themes": "npm run build-theme-light",
-    "build-theme-light": "sass --update src/themes/theme-light/theme.scss:dist/theme-light.css",
+    "build-theme-light": "sass --load-path=node_modules/ --update src/themes/theme-light/theme.scss:dist/theme-light.css",
     "clean": "rm -rf dist",
     "cp": "cp -r src dist && cp package.json dist && cp -r src/themes/theme-light/fonts dist/fonts",
     "package": "npm run build && npm pack",
