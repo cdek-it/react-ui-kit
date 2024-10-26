@@ -2,14 +2,18 @@
 :root {
     @if variable-exists(primitives) {
         @each $name, $color in $primitives {
-            @for $i from 0 through 10 {
+            @for $i from 0 through 5 {
                 @if ($i == 0) {
                     --#{$name}-0: #{mix(mix($color, #fff, 76%), #000, 80%)};
                     --#{$name}-50: #{mix($color, #fff, 5%)};
                 }
                 @else {
-                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 10%)};
+                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 19%)};
                 }
+            }
+
+            @for $i from 1 through 4 {
+                --#{$name}-#{($i + 5) * 100}: #{mix($color, #000, $i * 15%)};
             }
 
             --#{$name}-alpha: #{mix($color, #fff, 10%)};
