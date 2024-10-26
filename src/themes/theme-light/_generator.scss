@@ -16,7 +16,7 @@
             --#{$name}-900: #{mix($color, #000, 40%)};
 
 
-            --#{$name}-alpha: #{mix($color, #fff, 100%)};
+            --#{$name}-alpha: #{mix($color, transparent, 10%)};
         }
     }
 }
