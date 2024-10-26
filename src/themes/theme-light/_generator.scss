@@ -13,7 +13,7 @@
             }
 
             @for $i from 1 through 4 {
-                --#{$name}-#{($i + 5) * 100}: #{mix($color, #000, (10 - $i) * 15%)};
+                --#{$name}-#{($i + 5) * 100}: #{mix($color, #000, $i * 15%)};
             }
 
             --#{$name}-alpha: #{mix($color, #fff, 10%)};
