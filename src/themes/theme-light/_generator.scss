@@ -8,7 +8,7 @@
                     --#{$name}-50: #{mix($color, #fff, 5%)};
                 }
                 @else {
-                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 22%)};
+                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 19%)};
                 }
             }
 
