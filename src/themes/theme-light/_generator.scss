@@ -26,7 +26,7 @@
     @if variable-exists(neutrals) {
         @each $name, $color in $neutrals {
             @for $i from 1 through 10 {
-                --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 10%)};
+                --#{$name}-#{$i * 10}: #{mix($color, #fff, $i * 10%)};
             }
         }
     }

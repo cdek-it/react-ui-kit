@@ -1,6 +1,6 @@
 {
   "name": "@cdek/primereact",
-  "version": "0.0.6-development.9",
+  "version": "0.0.6-development.10",
   "description": "Тема для primereact",
   "scripts": {
     "build": "npm run clean && npm run cp && npm run build-themes",
