@@ -5,14 +5,14 @@
             @for $i from 0 through 10 {
                 @if ($i == 0) {
                     --#{$name}-0: #{mix(mix($color, #fff, 76%), #000, 80%)};
-                    --#{$name}-50: #{mix($color, #fff, (5 - $i) * 19%)};
+                    --#{$name}-50: #{mix($color, #fff, 5%)};
                 }
                 @else {
-                    --#{$name}-#{$i * 100}: #{rgba($color, $i * 0.1)};
+                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 10%)};
                 }
             }
 
-            --#{$name}-alpha: #{rgba($color, 0.1)};
+            --#{$name}-alpha: #{mix($color, #fff, 10%)};
         }
     }
 }
@@ -22,7 +22,7 @@
     @if variable-exists(neutrals) {
         @each $name, $color in $neutrals {
             @for $i from 1 through 10 {
-                --#{$name}-#{$i * 10}: #{rgba($color, $i * 0.1)};
+                --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 10%)};
             }
         }
     }
