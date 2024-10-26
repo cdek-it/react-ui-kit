@@ -8,12 +8,12 @@
                     --#{$name}-50: #{mix($color, #fff, 5%)};
                 }
                 @else {
-                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 19%)};
+                    --#{$name}-#{$i * 100}: #{mix($color, #fff, $i * 22%)};
                 }
             }
 
             @for $i from 1 through 4 {
-                --#{$name}-#{($i + 5) * 100}: #{mix($color, #000, $i * 15%)};
+                --#{$name}-#{($i + 5) * 100}: #{mix($color, #000, (10 - $i) * 15%)};
             }
 
             --#{$name}-alpha: #{mix($color, #fff, 10%)};
