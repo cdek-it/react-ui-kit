@@ -7,11 +7,13 @@
 }
 
 @mixin button-hover($color-background: transparent, $color-text: transparent, $color-border: transparent) {
+  @media (hover: hover) and (pointer: fine) {
     background: $color-background;
     color: $color-text;
     border-color: $color-border;
 
     box-shadow: $buttonHoverShadow;
+  }
 }
 
 %disabled {
@@ -529,7 +531,7 @@
             }
         }
     }
-    
+
     &.p-disabled {
         @extend %disabled;
     }
