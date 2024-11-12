@@ -3,11 +3,12 @@
   "version": "0.0.6-development.13",
   "description": "Тема для primereact",
   "scripts": {
-    "build": "npm run clean && npm run cp && npm run build-themes",
+    "build": "npm run clean && npm run cp && npm run cp-tailwind && npm run build-themes",
     "build-themes": "npm run build-theme-light",
     "build-theme-light": "sass --load-path=node_modules/ --update src/themes/theme-light/theme.scss:dist/theme-light.css",
     "clean": "rm -rf dist",
     "cp": "cp -r src dist && cp package.json dist && cp -r src/themes/theme-light/fonts dist/fonts",
+    "cp-tailwind": "cp tailwind.ts dist",
     "package": "npm run build && npm pack",
     "dev-version": "npm version prerelease --no-git-tag-version --force  --preid development"
   },
@@ -22,7 +23,6 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.0",
-    "primeflex": "3.3.1",
     "sass": "^1.77.6"
   }
 }
