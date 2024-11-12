@@ -24,6 +24,12 @@
             border-color: $paginatorElementHoverBorderColor;
             color: $paginatorElementIconHoverColor;
         }
+
+        &.p-disabled:not(.p-highlight) {
+            background: $disabledButtonBg;
+            border-color: $disabledButtonBorderColor;
+            color: $disabledButtonTextColor;
+        }
     }
 
     .p-paginator-first {
@@ -79,6 +85,11 @@
                 background: $highlightBg;
                 border-color: $highlightBg;
                 color: $highlightTextColor;
+
+                &:hover {
+                    background: $primaryColorHover;
+                    border-color: $primaryColorHover;
+                }
             }
 
             &:not(.p-highlight):hover {

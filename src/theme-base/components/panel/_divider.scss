@@ -1,4 +1,6 @@
 .p-divider {
+    border-color: $dividerColor;
+
     .p-divider-content {
         background-color: $panelContentBg;
     }
@@ -7,12 +9,17 @@
         margin: $dividerHorizontalMargin;
         padding: $dividerHorizontalPadding;
 
-        &:before {
-            border-top: $dividerSize $dividerColor;
-        }
-
         .p-divider-content {
             padding: 0 $inlineSpacing;
+        }
+
+        &:before {
+            border-top-width: $dividerSize;
+            border-top-color: $dividerColor;
+        }
+
+        &.p-divider-dash:before  {
+            border-top-style: dashed;
         }
     }
 
@@ -20,12 +27,17 @@
         margin: $dividerVerticalMargin;
         padding: $dividerVerticalPadding;
 
-        &:before {
-            border-left: $dividerSize $dividerColor;
-        }
-
         .p-divider-content {
             padding: $inlineSpacing 0;
+        }
+
+        &:before {
+            border-left-width: $dividerSize;
+            border-left-color: $dividerColor;
+        }
+
+        &.p-divider-dash:before  {
+            border-left-style: dashed;
         }
     }
 }

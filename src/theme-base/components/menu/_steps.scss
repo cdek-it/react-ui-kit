@@ -3,14 +3,25 @@
 .p-steps {
 
     .p-steps-item {
+        display: flex;
+        justify-content: center;
         .p-menuitem-link {
-            background: transparent;
-            transition: $listItemTransition;
-            border-radius: $borderRadius;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: $inlineSpacing;
+
+            border-radius: 0;
+            padding: 0 $inlineSpacing;
+
             background: $stepsItemBg;
+            transition: $listItemTransition;
+
+            z-index: 1;
 
             .p-steps-number {
                 color: $stepsItemNumberColor;
+                font-weight: $stepsItemFontWeight;
                 border: $stepsItemBorder;
                 background: $stepsItemBg;
                 min-width: $stepsItemNumberWidth;
@@ -22,8 +33,8 @@
             }
 
             .p-steps-title {
-                margin-top: $inlineSpacing;
                 color: $stepsItemTextColor;
+                font-weight: $stepsItemFontWeight;
             }
 
             &:not(.p-disabled):focus-visible {
@@ -35,11 +46,20 @@
             .p-steps-number {
                 background: $highlightBg;
                 color: $highlightTextColor;
+                border-color: transparent;
             }
 
             .p-steps-title {
-                font-weight: $stepsItemActiveFontWeight;
                 color: $textColor;
+            }
+        }
+
+        &.p-disabled {
+            opacity: 1; // Костыль на прозрачность
+
+            .p-steps-number,
+            .p-steps-title {
+                opacity: $disabledOpacity;
             }
         }
 
@@ -51,7 +71,22 @@
             left: 0;
             display: block;
             position: absolute;
-            margin-top: math.div(-1 * $stepsItemNumberHeight, 2);
+        }
+
+        &:first-of-type {
+            justify-content: flex-start;
+
+            .p-menuitem-link {
+                padding-left: 0;
+            }
+        }
+
+        &:last-of-type {
+            justify-content: flex-end;
+
+            .p-menuitem-link {
+                padding-right: 0;
+            }
         }
     }
 }

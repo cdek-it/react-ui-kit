@@ -1,3 +1,14 @@
+%disabled {
+    color: $disabledButtonTextColor;
+    background-color: $disabledButtonBg;
+    border-color: $disabledButtonBorderColor;
+
+    .p-button-icon-left,
+    .p-button-icon-right {
+        color: $disabledButtonTextColor !important;
+    }
+}
+
 //core
 .p-togglebutton {
     position: relative;
@@ -28,7 +39,7 @@
         z-index: 1;
         outline: 0 none;
         border: $toggleButtonBorder;
-        border-radius: $borderRadius;
+        border-radius: 100px;
     }
 
     .p-button {
@@ -37,6 +48,7 @@
         color: $toggleButtonTextColor;
         transition: $formElementTransition;
         outline-color: transparent;
+        border-radius: 100px;
 
         .p-button-icon-left,
         .p-button-icon-right {
@@ -44,15 +56,27 @@
         }
     }
 
+    &.p-disabled {
+        .p-button {
+            @extend %disabled;
+        }
+    }
+
     &.p-highlight {
         .p-button {
             background: $toggleButtonActiveBg;
             border-color: $toggleButtonActiveBorderColor;
-            color: $toggleButtonTextActiveColor;
+            color: $toggleButtonActiveTextColor;
 
             .p-button-icon-left,
             .p-button-icon-right {
                 color: $toggleButtonIconActiveColor;
+            }
+        }
+
+        &.p-disabled {
+            .p-button {
+                @extend %disabled;
             }
         }
     }
@@ -63,7 +87,7 @@
                 .p-button {
                     background: $toggleButtonHoverBg;
                     border-color: $toggleButtonHoverBorderColor;
-                    color: $toggleButtonTextHoverColor;
+                    color: $toggleButtonHoverTextColor;
 
                     .p-button-icon-left,
                     .p-button-icon-right {

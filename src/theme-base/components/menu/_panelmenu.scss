@@ -1,153 +1,147 @@
 .p-panelmenu {
-	.p-panelmenu-header {
-		outline: 0 none;
+    &[data-pc-section="root"] {
+        display: flex;
+        flex-direction: column;
+        gap: $menuitemSpacing;
+    }
+    // Стиль заголовка
+    [data-pc-section="header"] {
+        padding: $menuitemPadding;
 
-		.p-panelmenu-header-content {
-			border: $accordionHeaderBorder;
-			color: $accordionHeaderTextColor;
-			background: $accordionHeaderBg;
-			border-radius: $borderRadius;
-			transition: $listItemTransition;
+        border-radius: $menuitemBorderRadius;
+        border: $menuitemBorder;
 
-			.p-panelmenu-header-link {
-				color: $accordionHeaderTextColor;
-				padding: $accordionHeaderPadding;
-				font-weight: $accordionHeaderFontWeight;
+        background-color: $menuitemBg;
 
-				.p-submenu-icon {
-					margin-right: $inlineSpacing;
-				}
+        .p-panelmenu-header-link {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: $inlineSpacing;
+        }
 
-				.p-menuitem-icon {
-					margin-right: $inlineSpacing;
-				}
-			}
-		}
+        .p-menuitem-text {
+            color: $menuitemTextColor;
+        }
 
-		&:not(.p-disabled) {
-			&:focus-visible {
-				.p-panelmenu-header-content {
-					@include focused-inset();
-				}
-			}
-		}
+        .p-menuitem-icon {
+            color: $menuitemTextColor;
+        }
 
-		&:not(.p-highlight):not(.p-disabled):hover {
-			.p-panelmenu-header-content {
-				background: $accordionHeaderHoverBg;
-				border-color: $accordionHeaderHoverBorderColor;
-				color: $accordionHeaderTextHoverColor;
-			}
-		}
+        .p-submenu-icon {
+            color: $menuitemIconColor;
+        }
+    }
+    // Стиль не активного заголовка по наведению
+    [data-pc-section="header"][aria-expanded="false"]:not([data-p-disabled="true"]):hover {
+        cursor: pointer;
 
-		&:not(.p-disabled).p-highlight {
-			.p-panelmenu-header-content {
-				background: $accordionHeaderActiveBg;
-				border-color: $accordionHeaderActiveBorderColor;
-				color: $accordionHeaderTextActiveColor;
-				border-bottom-right-radius: 0;
-				border-bottom-left-radius: 0;
-				margin-bottom: 0;
-			}
+        background-color: $menuitemHoverBg;
 
-			&:hover {
-				.p-panelmenu-header-content {
-					border-color: $accordionHeaderActiveHoverBorderColor;
-					background: $accordionHeaderActiveHoverBg;
-					color: $accordionHeaderTextActiveHoverColor;
-				}
-			}
-		}
-	}
+        .p-menuitem-text {
+            color: $menuitemHoverTextColor;
+        }
 
-	.p-panelmenu-content {
-		padding: $verticalMenuPadding;
-		border: $accordionContentBorder;
-		background: $accordionContentBg;
-		color: $accordionContentTextColor;
-		border-top: 0;
-		border-top-right-radius: 0;
-		border-top-left-radius: 0;
-		border-bottom-right-radius: $borderRadius;
-		border-bottom-left-radius: $borderRadius;
+        .p-menuitem-icon {
+            color: $menuitemHoverTextColor;
+        }
 
-		.p-panelmenu-root-list {
-			outline: 0 none;
-		}
+        .p-submenu-icon {
+            color: $menuitemHoverIconColor;
+        }
+    }
 
-		.p-menuitem {
-			@include menuitem-link();
+    // Стиль активного заголовка
+    [data-pc-section="header"][aria-expanded="true"] {
+        background-color: $menuitemActiveBg;
 
-			.p-menuitem-content {
-				.p-menuitem-link {
-					.p-submenu-icon {
-						margin-right: $inlineSpacing;
-					}
-				}
-			}
-		}
+        .p-menuitem-text {
+            color: $menuitemActiveTextColor;
+        }
 
-		.p-menuitem-separator {
-			border-top: $divider;
-			margin: $menuSeparatorMargin;
-		}
+        .p-menuitem-icon {
+            color: $menuitemActiveTextColor;
+        }
 
-		.p-submenu-list:not(.p-panelmenu-root-list) {
-			padding: $treeNodeChildrenPadding;
-		}
-	}
+        .p-submenu-icon {
+            color: $menuitemActiveIconColor;
+        }
+    }
 
-	.p-panelmenu-panel {
-		margin-bottom: $accordionSpacing;
+    // Стиль активного заголовка по наведению
+    [data-pc-section="header"][aria-expanded="true"]:not([data-p-disabled="true"]):hover {
+        cursor: pointer;
 
-		@if $accordionSpacing == 0 {
-			.p-panelmenu-header {
-				.p-panelmenu-header-content {
-					border-radius: 0;
-				}
-			}
+        background-color: $menuitemActiveHoverBg;
 
-			.p-panelmenu-content {
-				border-radius: 0;
-			}
+        .p-menuitem-text {
+            color: $menuitemActiveTextColor;
+        }
 
-			&:not(:first-child) {
-				.p-panelmenu-header {
-					.p-panelmenu-header-content {
-						border-top: 0 none;
-					}
+        .p-menuitem-icon {
+            color: $menuitemActiveTextColor;
+        }
 
-					&:not(.p-highlight):not(.p-disabled):hover,
-					&:not(.p-disabled).p-highlight:hover {
-						.p-panelmenu-header-content {
-							border-top: 0 none;
-						}
-					}
-				}
-			}
+        .p-submenu-icon {
+            color: $menuitemActiveIconColor;
+        }
+    }
 
-			&:first-child {
-				.p-panelmenu-header {
-					.p-panelmenu-header-content {
-						border-top-right-radius: $borderRadius;
-						border-top-left-radius: $borderRadius;
-					}
-				}
-			}
+    // Стиль заголовка в состоянии disabled
+    [data-pc-section="header"][data-p-disabled="true"] {
+        background-color: $disabledButtonBg;
+        border-color: $disabledButtonBorderColor;
 
-			&:last-child {
-				.p-panelmenu-header:not(.p-highlight) {
-					.p-panelmenu-header-content {
-						border-bottom-right-radius: $borderRadius;
-						border-bottom-left-radius: $borderRadius;
-					}
-				}
+        .p-menuitem-icon {
+            color: $disabledButtonTextColor;
+        }
 
-				.p-panelmenu-content {
-					border-bottom-right-radius: $borderRadius;
-					border-bottom-left-radius: $borderRadius;
-				}
-			}
-		}
-	}
+        .p-menuitem-text {
+            color: $disabledButtonTextColor;
+        }
+
+        .p-submenu-icon {
+            color: $disabledButtonTextColor;
+        }
+    }
+
+    [data-pc-section="menu"] {
+        padding: $overlayMenuPadding 0 0 $menuNodeChildrenPadding;
+    }
+
+    [data-pc-section="submenu"] {
+        padding: $overlayMenuPadding 0 0 $menuNodeChildrenPadding;
+    }
+
+    @include menuitem();
+    @include menuitem-separator();
+
+    // Фикс стиля disabled
+    .p-menuitem {
+        & > .p-menuitem-content:has(.p-disabled) {
+            pointer-events: none;
+            opacity: $disabledOpacity;
+
+            .p-menuitem-link {
+                pointer-events: none;
+
+                background-color: $disabledButtonBg;
+                border-color: $disabledButtonBorderColor;
+
+                opacity: 1;
+            }
+
+            .p-menuitem-icon {
+                color: $disabledButtonTextColor;
+            }
+
+            .p-menuitem-text {
+                color: $disabledButtonTextColor;
+            }
+
+            .p-submenu-icon {
+                color: $disabledButtonTextColor;
+            }
+        }
+    }
 }

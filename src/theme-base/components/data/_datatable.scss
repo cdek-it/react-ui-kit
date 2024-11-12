@@ -1,3 +1,5 @@
+@use "sass:math";
+
 .p-datatable {
     .p-paginator-top {
         border-width: $tableTopPaginatorBorderWidth;
@@ -78,16 +80,7 @@
             color: $tableHeaderCellHighlightTextColor;
 
             .p-sortable-column-icon {
-                color: $tableHeaderCellHighlightTextColor;
-            }
-
-            &:not(.p-sortable-disabled):hover {
-                background: $tableHeaderCellHighlightHoverBg;
-                color: $tableHeaderCellHighlightTextColor;
-    
-                .p-sortable-column-icon {
-                    color: $tableHeaderCellHighlightTextColor;
-                }
+                color: $tableHeaderCellHighlightIconColor;
             }
         }
 
@@ -125,14 +118,14 @@
                 }
 
                 &.p-highlight {
-                    background: $highlightBg;
-                    color: $highlightTextColor;
+                    background: $tableBodyCellHighlightBg;
+                    color: $tableBodyCellHighlightTextColor;
                 }
             }
 
             &.p-highlight {
-                background: $highlightBg;
-                color: $highlightTextColor;
+                background: $tableBodyCellHighlightBg;
+                color: $tableBodyCellHighlightTextColor;
             }
 
             &.p-highlight-contextmenu {
@@ -147,6 +140,12 @@
             &.p-datatable-dragpoint-bottom > td {
                 box-shadow: inset 0 -2px 0 0 $highlightBg;
             }
+        }
+    }
+
+    .p-datatable-frozen-tbody {
+        &  > tr > td {
+            background: $tableHeaderCellBg;
         }
     }
 
@@ -318,18 +317,10 @@
         .p-datatable-tbody {
             > tr.p-row-odd {
                 background: $tableBodyRowEvenBg;
-    
+
                 &.p-highlight {
-                    background: $highlightBg;
-                    color: $highlightTextColor;
-    
-                    .p-row-toggler {
-                        color: $highlightTextColor;
-    
-                        &:hover {
-                            color: $highlightTextColor;
-                        }
-                    }
+                    background: $tableBodyCellHighlightBg;
+                    color: $tableBodyCellHighlightTextColor;
                 }
 
                 & + .p-row-expanded {
@@ -386,4 +377,96 @@
 
 .p-datatable-drag-selection-helper {
     background: $tableDragHelperBg;
+}
+
+.p-column-filter-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: $menuitemSpacing;
+
+    background-color: $overlayMenuBg;
+    padding: $overlayMenuPadding;
+
+    border: $overlayMenuBorder;
+    border-radius: $borderRadius;
+}
+
+.p-column-filter-constraint,
+.p-column-filter-constraints {
+    display: flex;
+    flex-direction: column;
+    gap: $menuitemSpacing;
+}
+
+.p-column-filter-buttonbar {
+    display: flex;
+    gap: $menuitemSpacing;
+}
+
+[data-pc-section="filterremove"] {
+    display: none;
+
+    &:has(.p-column-filter-remove-button) {
+        display: block;
+    }
+}
+
+.p-column-filter-menu-button,
+.p-column-filter-clear-button {
+    @include action-icon();
+
+    &.p-column-filter-menu-button-active {
+        background-color: $highlightBg;
+        color: $highlightTextColor;
+    
+        &:hover {
+            background-color: $primaryColorHover;
+            color: $primaryColorText;
+        }
+    }
+}
+
+.p-column-filter-row {
+    gap: $inlineSpacing;
+}
+
+.p-column-filter-row-item {
+    color: $menuitemTextColor;
+
+    padding: $menuitemPadding;
+    margin-top: $menuitemSpacing;
+
+    background-color: $menuitemBg;
+
+    border-radius: $menuitemBorderRadius;
+    border: $menuitemBorder;
+
+    &:first-of-type {
+        margin: 0;
+    }
+
+    &:not(.p-highlight):hover {
+        color: $menuitemHoverTextColor;
+        background-color: $menuitemHoverBg;
+    }
+
+    &.p-highlight {
+        color: $menuitemActiveTextColor;
+        background-color: $menuitemActiveBg;
+
+        &:hover {
+            background-color: $menuitemActiveHoverBg;
+        }
+    }
+}
+
+.p-column-filter-separator {
+    height: 1px;
+
+	border-bottom: $overlayMenuBorder;
+	margin-top: $menuitemSpacing;
+}
+
+.p-datatable-reorderablerow-handle {
+    color: $actionIconColor;
 }

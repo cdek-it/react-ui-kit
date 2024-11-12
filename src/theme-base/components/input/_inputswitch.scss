@@ -4,6 +4,10 @@
 .p-inputswitch {
     position: relative;
     display: inline-block;
+
+    &.p-invalid .p-inputswitch-slider {
+        border: 1px solid transparent;
+    }
 }
 
 .p-inputswitch-input {
@@ -28,7 +32,6 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border: 1px solid transparent;
 }
 
 .p-inputswitch-slider:before {

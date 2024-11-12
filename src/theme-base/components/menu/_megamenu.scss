@@ -1,141 +1,161 @@
 .p-megamenu {
-	padding: $horizontalMenuPadding;
-	background: $horizontalMenuBg;
-	color: $horizontalMenuTextColor;
-	border: $horizontalMenuBorder;
-	border-radius: $borderRadius;
+    [class*="header"] {
+        color: $submenuHeaderTextColor;
+        font-size: $submenuHeaderFontSize;
+        font-weight: $submenuHeaderFontWeight;
+        text-transform: uppercase;
 
-	.p-megamenu-root-list {
-		outline: 0 none;
-	}
+        padding: $menuitemPadding;
 
-	.p-menuitem {
-		@include menuitem-link();
-	}
+        border: 1px solid transparent;
+        border-radius: $submenuHeaderBorderRadius;
 
-	.p-megamenu-panel {
-		background: $overlayMenuBg;
-		color: $menuTextColor;
+        background-color: $submenuHeaderBg;
+
+        &[data-p-disabled="true"] {
+            color: $disabledButtonTextColor;
+
+            background-color: $disabledButtonBg;
+            border-color: $disabledButtonBorderColor;
+        }
+    }
+
+    [class*="grid"] {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: $menuitemSpacing;
+
+        width: max-content;
+
+		border-radius: $borderRadius;
 		border: $overlayMenuBorder;
+
+        padding: $overlayMenuPadding;
+
+		background-color: $overlayMenuBg;
 		box-shadow: $overlayMenuShadow;
-	}
+    }
+    
+    [class*="col"] {
+        display: flex;
+        flex-grow: 1;
 
-	.p-submenu-header {
-		margin: $submenuHeaderMargin;
-		padding: $submenuHeaderPadding;
-		color: $submenuHeaderTextColor;
-		background: $submenuHeaderBg;
-		font-weight: $submenuHeaderFontWeight;
-		border-top-right-radius: $borderRadius;
-		border-top-left-radius: $borderRadius;
-	}
+        width: auto;
 
-	.p-submenu-list {
-		padding: $verticalMenuPadding;
-		width: $menuWidth;
+        padding: 0;
+    }
 
-		.p-menuitem-separator {
-			border-top: $divider;
-			margin: $menuSeparatorMargin;
+    @include menuitem();
+	@include menuitem-separator();
+}
+
+.p-megamenu-horizontal {
+    display: flex;
+
+	[class*="root"] {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: nowrap;
+		gap: $menuitemSpacing;
+
+		& > .p-menuitem {
+			margin: 0;
 		}
-	}
+    }
+    
+    [class*="grid"] {
+        margin-top: $menuitemSpacing;
+    }
+}
 
-	&.p-megamenu-vertical {
-		width: $menuWidth;
-		padding: $verticalMenuPadding;
-	}
+.p-megamenu-vertical {
+    display: flex;
 
-	.p-megamenu-button {
-		width: $actionIconWidth;
-		height: $actionIconHeight;
-		color: $horizontalMenuRootMenuitemIconColor;
-		border-radius: $actionIconBorderRadius;
-		transition: $actionIconTransition;
+    [class*="root"] {
+        display: flex;
+        flex-direction: column;
+    }
 
-		&:hover {
-			color: $horizontalMenuRootMenuitemIconHoverColor;
-			background: $horizontalMenuRootMenuitemHoverBg;
+    [class*="grid"] {
+        margin-left: $menuitemSpacing;
+    }
+}
+
+@media screen and (max-width: 960px) {
+	.p-megamenu {
+		position: relative;
+
+		.p-megamenu-button {
+			display: flex;
+
+			@include action-icon(false);
+			transition: $actionIconTransition;
 		}
 
-		&:focus {
-			@include focused();
+		[aria-expanded="false"] + [class*="root"] {
+			display: none;
 		}
-	}
 
-	&.p-megamenu-horizontal {
-		.p-megamenu-root-list {
-			> .p-menuitem {
-				@include horizontal-rootmenuitem-link();
-			}
-		}
-	}
+		[class*="root"] {
+			position: absolute;
+			left: 0;
+			top: 100%;
 
-	&.p-megamenu-mobile-active {
-		.p-megamenu-root-list {
-			padding: $verticalMenuPadding;
-			background: $overlayMenuBg;
+			display: flex;
+			flex-direction: column;
+
+			min-width: $menuWidth;
+
+			border-radius: $borderRadius;
 			border: $overlayMenuBorder;
+
+			padding: $overlayMenuPadding;
+			margin-top: $menuitemSpacing;
+
+			background-color: $overlayMenuBg;
 			box-shadow: $overlayMenuShadow;
 
-			.p-menu-separator {
-				border-top: $divider;
-				margin: $menuSeparatorMargin;
-			}
-
-			.p-submenu-icon {
-				font-size: $menuitemSubmenuIconFontSize;
-
-				&.p-icon {
-					width: $menuitemSubmenuIconFontSize;
-					height: $menuitemSubmenuIconFontSize;
-				}
-			}
-
-			> .p-menuitem {
-				width: 100%;
-				position: static;
-
-				> .p-menuitem-link {
-					@include menuitem-link();
-
-					> .p-submenu-icon {
-						margin-left: auto;
-					}
-				}
-
-				&.p-menuitem-active {
-					> .p-menuitem-link {
-						> .p-submenu-icon {
-							transform: rotate(-180deg);
-						}
-					}
-				}
-			}
-
-			.p-submenu-list {
-				width: 100%;
-				position: static;
-				box-shadow: none;
-				border: 0 none;
-
-				.p-submenu-icon {
-					transition: transform $transitionDuration;
-					transform: rotate(90deg);
-				}
-
-				.p-menuitem-active {
-					> .p-menuitem-link {
-						> .p-submenu-icon {
-							transform: rotate(-90deg);
-						}
-					}
-				}
-			}
-
-			.p-menuitem {
-				width: 100%;
-				position: static;
-			}
+			z-index: 2;
 		}
-	}
+
+		[class*="panel"] {
+			width: 100%;
+			position: static;
+        }
+        
+        [class*="grid"] {
+            display: flex;
+            flex-direction: column;
+            
+            border: none;
+			border-radius: 0;
+
+			margin: 0 !important;
+			padding: $overlayMenuPadding 0 0 $menuNodeChildrenPadding;
+
+            box-shadow: none;
+            
+            [class*="list"] {
+                width: 100%;
+            }
+        }
+    }
+    
+    .p-megamenu-horizontal {
+        [aria-expanded="false"] {
+            .p-submenu-icon {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    .p-megamenu-vertical {
+        [aria-expanded="true"] {
+            .p-submenu-icon {
+                transform: rotate(90deg);
+            }
+        }
+    }
 }
+

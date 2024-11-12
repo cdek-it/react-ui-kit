@@ -1,43 +1,28 @@
 .p-tieredmenu {
-	padding: $verticalMenuPadding;
-	background: $menuBg;
-	color: $menuTextColor;
-	border: $menuBorder;
-	border-radius: $borderRadius;
-	width: $menuWidth;
+    display: flex;
 
-	&.p-tieredmenu-overlay {
-		background: $overlayMenuBg;
+	[class*="root"] {
+		display: flex;
+		flex-direction: column;
+    }
+
+    [data-pc-section="submenu"] {
+        min-width: $menuWidth;
+
+		border-radius: $borderRadius;
 		border: $overlayMenuBorder;
+
+        padding: $overlayMenuPadding;
+
+        margin-top: -$menuitemSpacing;
+        margin-left: $menuitemSpacing;
+
+		background-color: $overlayMenuBg;
 		box-shadow: $overlayMenuShadow;
-	}
 
-	.p-tieredmenu-root-list {
-		outline: 0 none;
-	}
+		z-index: 2;
+    }
 
-	.p-submenu-list {
-		padding: $verticalMenuPadding;
-		background: $overlayMenuBg;
-		border: $overlayMenuBorder;
-		box-shadow: $overlayMenuShadow;
-	}
-
-	.p-menuitem {
-		@include menuitem-link();
-	}
-
-	.p-menuitem-separator {
-		border-top: $divider;
-		margin: $menuSeparatorMargin;
-	}
-
-	.p-submenu-icon {
-		font-size: $menuitemSubmenuIconFontSize;
-
-		&.p-icon {
-			width: $menuitemSubmenuIconFontSize;
-			height: $menuitemSubmenuIconFontSize;
-		}
-	}
+    @include menuitem();
+	@include menuitem-separator();
 }

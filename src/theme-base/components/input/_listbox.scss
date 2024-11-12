@@ -11,8 +11,42 @@
 
 .p-listbox-item {
     cursor: pointer;
-    position: relative;
+
     overflow: hidden;
+    position: relative;
+
+    color: $inputListItemTextColor;
+
+    margin: $inputListItemMargin;
+    padding: $inputListItemPadding;
+    
+    border: $inputListItemBorder;
+    border-radius: $inputListItemBorderRadius;
+
+    transition: $listItemTransition;
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &.p-highlight {
+        color: $highlightTextColor;
+        background: $highlightBg;
+    }
+
+    &:not(.p-highlight).p-disabled {
+        color: $disabledButtonTextColor;
+        border-color: $disabledButtonBorderColor;
+        background: $disabledButtonBg;
+    }
+
+    &.p-disabled {
+        cursor: not-allowed;
+    }
 }
 
 .p-listbox-item-group {
@@ -59,33 +93,15 @@
             right: nth($inputPadding, 2);
             color: $inputIconColor;
         }
+
+        .p-disabled + .p-listbox-filter-icon {
+            opacity: $disabledOpacity;
+        }
     }
 
     .p-listbox-list {
         padding: $inputListPadding;
         outline: 0 none;
-
-        .p-listbox-item {
-            margin: $inputListItemMargin;
-            padding: $inputListItemPadding;
-            border: $inputListItemBorder;
-            color: $inputListItemTextColor;
-            transition: $listItemTransition;
-            border-radius: $inputListItemBorderRadius;
-
-            &:first-child {
-                margin-top: 0;
-            }
-
-            &:last-child {
-                margin-bottom: 0;
-            }
-
-            &.p-highlight {
-                color: $highlightTextColor;
-                background: $highlightBg;
-            }
-        }
 
         .p-listbox-item-group {
             margin: $submenuHeaderMargin;
@@ -96,32 +112,40 @@
         }
 
         .p-listbox-empty-message {
-            padding: $inputListItemPadding;
+            text-align: center;
             color: $inputListItemTextColor;
+
+            padding: $inputListItemPaddingLeftRight;            
             background: $inputListItemBg;
+
+            
         }
     }
 
     &:not(.p-disabled) {
-        .p-listbox-item {
+        :not(.p-disabled).p-listbox-item {
             &.p-highlight {
                 &.p-focus {
-                    background: $highlightFocusBg;
+                    // background: $highlightFocusBg;
+                }
+
+                &:hover {
+                    background: $primaryColorHover;
                 }
             }
 
             &:not(.p-highlight):not(.p-disabled) {
                 &.p-focus {
-                    color: $inputListItemTextHoverColor;
+                    color: $inputListItemHoverTextColor;
                     background: $inputListItemHoverBg;
                 }
 
                 &:hover {
-                    color: $inputListItemTextHoverColor;
+                    color: $inputListItemHoverTextColor;
                     background: $inputListItemHoverBg;
 
                     &.p-focus {
-                        color: $inputListItemTextHoverColor;
+                        color: $inputListItemHoverTextColor;
                         background: $inputListItemHoverBg;
                     }
                 }
@@ -135,5 +159,9 @@
 
     &.p-invalid {
         @include invalid-input();
+    }
+
+    &.p-disabled *.p-disabled {
+        opacity: 1;
     }
 }

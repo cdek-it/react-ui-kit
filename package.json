@@ -1,27 +1,27 @@
 {
   "name": "@cdek/primereact",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Тема для primereact",
   "scripts": {
     "build": "npm run clean && npm run cp && npm run build-themes",
-    "build-themes": "npm run build-theme-light && npm run build-theme-dark",
-    "build-theme-light": "sass --update ./src/themes/lara/lara-light/green/theme.scss:dist/theme-light.css",
-    "build-theme-dark": "sass --update ./src/themes/lara/lara-dark/green/theme.scss:dist/theme-dark.css",
+    "build-themes": "npm run build-theme-light",
+    "build-theme-light": "sass --load-path=node_modules/ --update src/themes/theme-light/theme.scss:dist/theme-light.css",
     "clean": "rm -rf dist",
-    "cp": "cp -r src dist && cp package.json dist",
+    "cp": "cp -r src dist && cp package.json dist && cp -r src/themes/theme-light/fonts dist/fonts",
     "package": "npm run build && npm pack",
     "dev-version": "npm version prerelease --no-git-tag-version --force  --preid development"
   },
   "files": [
     "dist"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@tabler/icons-webfont": "3.16.0"
+  },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.0",
-    "primeflex": "3.3.1",
     "sass": "^1.77.6"
   }
 }

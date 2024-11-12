@@ -10,6 +10,11 @@
     &:last-child {
         border-right: $inputBorder;
     }
+
+    &.p-disabled {
+        background-color: $disabledButtonBg;
+        color: $disabledButtonTextColor;
+    }
 }
 
 .p-inputgroup {
