@@ -12,7 +12,6 @@ variables:
   DOCKER_HOST: "tcp://docker:2375"
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
-  PUBLIC_URL: "/"
 
 stages:
   # Шаг поднятия версии, должен запускаться только для коммита в master
@@ -20,7 +19,7 @@ stages:
   # Шаги сборки проекта, запускается для feature веток и master
   - build
   # Шаг для деплоя сторибука
-  - deploy
+  - storybook
 
 build-feature:
   when: manual
@@ -75,20 +74,20 @@ version-release:
   tags:
     - docker
 
+
 # Добавляем стадию для Storybook
-deploy-storybook:
-  stage: deploy
+pages:
+  stage: storybook
   before_script:
     - !reference [ '.ci-scripts', 'set_npmrc_registry' ]
   script:
     - npm i
     - npm run build-storybook
-    - mv storybook-static public
   artifacts:
     paths:
       - public
-  #only:
-  #  - master
+  # only:
+  #   - master
   when: manual
   tags:
     - docker
