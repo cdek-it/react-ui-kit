@@ -79,8 +79,9 @@ version-release:
 deploy-storybook:
   stage: deploy
   before_script:
-    - npm install
+    - !reference [ '.ci-scripts', 'set_npmrc_registry' ]
   script:
+    - npm i
     - npm run build-storybook
     - mv storybook-static public
   artifacts:
