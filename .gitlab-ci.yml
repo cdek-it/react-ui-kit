@@ -87,7 +87,7 @@ deploy-storybook:
     paths:
       - public
   only:
-    - main
+    - master
   when: manual
 
   cache:
