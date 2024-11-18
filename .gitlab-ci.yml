@@ -20,7 +20,7 @@ stages:
   # Шаги сборки проекта, запускается для feature веток и master
   - build
   # Шаг для деплоя сторибука
-  - deploy-storybook
+  - deploy
 
 build-feature:
   when: manual
