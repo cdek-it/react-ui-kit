@@ -86,8 +86,8 @@ deploy-storybook:
   artifacts:
     paths:
       - public
-  only:
-    - master
+  #only:
+  #  - master
   when: manual
 
   cache:
