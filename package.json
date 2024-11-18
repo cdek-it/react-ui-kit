@@ -9,7 +9,9 @@
     "clean": "rm -rf dist",
     "cp": "cp -r src dist && cp package.json dist && cp -r src/themes/theme-light/fonts dist/fonts",
     "package": "npm run build && npm pack",
-    "dev-version": "npm version prerelease --no-git-tag-version --force  --preid development"
+    "dev-version": "npm version prerelease --no-git-tag-version --force  --preid development",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "files": [
     "dist"
@@ -18,10 +20,24 @@
     "@tabler/icons-webfont": "3.16.0"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.2",
+    "@storybook/addon-essentials": "^8.4.3",
+    "@storybook/addon-interactions": "^8.4.3",
+    "@storybook/addon-onboarding": "^8.4.3",
+    "@storybook/addon-webpack5-compiler-swc": "^1.0.5",
+    "@storybook/blocks": "^8.4.3",
+    "@storybook/react": "^8.4.3",
+    "@storybook/react-docgen-typescript-plugin": "^1.0.1",
+    "@storybook/react-webpack5": "^8.4.3",
+    "@storybook/test": "^8.4.3",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.4.0",
-    "sass": "^1.77.6"
+    "primeicons": "7.0.0",
+    "primereact": "10.8.4",
+    "react-docgen": "^7.1.0",
+    "sass": "^1.77.6",
+    "storybook": "^8.4.3"
   }
 }
