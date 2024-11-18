@@ -51,6 +51,7 @@ build-release:
   script:
     - npm i
     - npm run build
+    - npm run build-storybook
     - !reference [ '.ci-scripts', 'set_npmrc_publish' ]
     - !reference [ '.ci-scripts', 'npm_publish' ]
   tags:
