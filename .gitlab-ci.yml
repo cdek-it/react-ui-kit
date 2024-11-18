@@ -12,12 +12,15 @@ variables:
   DOCKER_HOST: "tcp://docker:2375"
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
+  PUBLIC_URL: "/"
 
 stages:
   # Шаг поднятия версии, должен запускаться только для коммита в master
   - version
   # Шаги сборки проекта, запускается для feature веток и master
   - build
+  # Шаг для деплоя сторибука
+  - deploy-storybook
 
 build-feature:
   when: manual
@@ -71,3 +74,22 @@ version-release:
     - git push --tags -f https://$GITLAB_CI_USER:$PRIVATE_TOKEN@gitlab.cdek.ru/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git HEAD:$CI_COMMIT_REF_NAME
   tags:
     - docker
+
+# Добавляем стадию для Storybook
+deploy-storybook:
+  stage: deploy
+  before_script:
+    - npm install
+  script:
+    - npm run build-storybook
+    - mv storybook-static public
+  artifacts:
+    paths:
+      - public
+  only:
+    - main
+  when: manual
+
+  cache:
+    paths:
+      - public/
