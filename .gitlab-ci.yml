@@ -89,6 +89,8 @@ deploy-storybook:
   #only:
   #  - master
   when: manual
+  tags:
+    - docker
 
   cache:
     paths:
