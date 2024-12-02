@@ -83,31 +83,33 @@
 
     &:not(.p-disabled) {
         &:has(.p-togglebutton-input:hover) {
+          @include media-hover {
             &:not(.p-highlight) {
-                .p-button {
-                    background: $toggleButtonHoverBg;
-                    border-color: $toggleButtonHoverBorderColor;
-                    color: $toggleButtonHoverTextColor;
+              .p-button {
+                background: $toggleButtonHoverBg;
+                border-color: $toggleButtonHoverBorderColor;
+                color: $toggleButtonHoverTextColor;
 
-                    .p-button-icon-left,
-                    .p-button-icon-right {
-                        color: $toggleButtonIconHoverColor;
-                    }
+                .p-button-icon-left,
+                .p-button-icon-right {
+                  color: $toggleButtonIconHoverColor;
                 }
+              }
             }
 
             &.p-highlight {
-                .p-button {
-                    background: $toggleButtonActiveHoverBg;
-                    border-color: $toggleButtonActiveHoverBorderColor;
-                    color: $toggleButtonTextActiveHoverColor;
+              .p-button {
+                background: $toggleButtonActiveHoverBg;
+                border-color: $toggleButtonActiveHoverBorderColor;
+                color: $toggleButtonTextActiveHoverColor;
 
-                    .p-button-icon-left,
-                    .p-button-icon-right {
-                        color: $toggleButtonIconActiveHoverColor;
-                    }
+                .p-button-icon-left,
+                .p-button-icon-right {
+                  color: $toggleButtonIconActiveHoverColor;
                 }
+              }
             }
+          }
         }
 
         &:has(.p-togglebutton-input:focus-visible) {

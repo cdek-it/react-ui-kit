@@ -7,7 +7,7 @@
 }
 
 @mixin button-hover($color-background: transparent, $color-text: transparent, $color-border: transparent) {
-  @media (hover: hover) and (pointer: fine) {
+  @include media-hover {
     background: $color-background;
     color: $color-text;
     border-color: $color-border;

@@ -8,8 +8,10 @@
             border: $outlinedButtonBorder;
 
             &:not(:disabled):hover {
+              @include media-hover {
                 background: rgba($buttonBg, $textButtonHoverBgOpacity);
                 color: $buttonBg;
+              }
             }
 
             &:not(:disabled):active {
@@ -24,10 +26,12 @@
                 border-color: $plainButtonTextColor;
 
                 &:not(:disabled):hover {
+                  @include media-hover {
                     background: $plainButtonHoverBgColor;
                     color: $plainButtonTextColor;
+                  }
                 }
-        
+
                 &:not(:disabled):active {
                     background: $plainButtonActiveBgColor;
                     color: $plainButtonTextColor;
@@ -63,7 +67,7 @@
                     background: $plainButtonHoverBgColor;
                     color: $plainButtonTextColor;
                 }
-        
+
                 &:not(:disabled):active {
                     background: $plainButtonActiveBgColor;
                     color: $plainButtonTextColor;
@@ -103,13 +107,13 @@
             &.p-button-icon-only {
                 width: auto;
             }
-            
+
             .p-button-icon {
                 @include scaledFontSize($primeIconFontSize, $scaleLG);
             }
         }
     }
-    
+
     .p-splitbutton-menubutton,
     .p-splitbutton.p-button-rounded > .p-splitbutton-menubutton.p-button,
     .p-splitbutton.p-button-outlined > .p-splitbutton-menubutton.p-button {
@@ -118,7 +122,7 @@
     }
 }
 
-.p-splitbutton.p-button-secondary {    
+.p-splitbutton.p-button-secondary {
     &.p-button-outlined {
         > .p-button {
             background-color: transparent;
