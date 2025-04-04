@@ -78,17 +78,19 @@
     }
 
     &:not(.p-disabled) {
+      @include media-hover {
         &:has(.p-inputswitch-input:hover) {
-            .p-inputswitch-slider {
-                background: $inputSwitchSliderOffHoverBg;
-            }
+          .p-inputswitch-slider {
+            background: $inputSwitchSliderOffHoverBg;
+          }
 
-            &.p-highlight {
-                .p-inputswitch-slider {
-                    background: $inputSwitchSliderOnHoverBg;
-                }
+          &.p-highlight {
+            .p-inputswitch-slider {
+              background: $inputSwitchSliderOnHoverBg;
             }
+          }
         }
+      }
 
         &:has(.p-inputswitch-input:focus-visible) {
             .p-inputswitch-slider {
