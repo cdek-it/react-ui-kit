@@ -153,7 +153,7 @@ export default {
 Далее в своем проекте подключаем
 
 ```scss
-@use '@cdek/primereact/dist/utils/tailwind.scss';
+@use '@cdek/primereact/dist/utils/typography.scss';
 
 @tailwind base;
 @tailwind utilities;
