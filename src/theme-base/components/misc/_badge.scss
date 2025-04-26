@@ -7,6 +7,11 @@
     height: $badgeHeight;
     line-height: $badgeHeight;
 
+    &.p-badge-secondary {
+        background-color: $secondaryButtonBg;
+        color: $secondaryButtonTextColor;
+    }
+
     &.p-badge-success {
         background-color: $successButtonBg;
         color: $successButtonTextColor;

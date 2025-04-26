@@ -5,7 +5,7 @@
 @import "_primary";
 @import "_variables";
 @import "_root";
-@import "_media-querry";
+@import "_media-query";
 @import "../../theme-base/_mixins";
 @import "../../theme-base/_common";
 
@@ -33,7 +33,7 @@
 @import "../../theme-base/components/input/_rating";
 @import "../../theme-base/components/input/_calendar";
 @import "../../theme-base/components/input/_autocomplete";
-
+@import "_float-label";
 //Panel
 @import '../../theme-base/components/panel/_tabview';
 @import "../../theme-base/components/panel/_divider";
@@ -80,3 +80,8 @@
 
 // Multimedia
 @import "../../theme-base/components/multimedia/_galleria";
+
+// external
+@import "_icons";
+@import "_list";
+@import "_scroll";
