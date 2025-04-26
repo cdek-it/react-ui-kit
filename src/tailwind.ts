@@ -9,6 +9,14 @@ const arr_50_950 = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
 const arr_0_900 = [0, 50, 100, 200, 300, 400, 500, 600, 700, 800, 900];
 const arr_0_900_alpha = [...arr_0_900, 'alpha'];
 
+export const screens = {
+  sm: '1px',
+  md: '768px',
+  lg: '1200px',
+  xl: '1280px',
+  '2xl': '1536px',
+};
+
 export const colors = {
   // Common
   current: 'currentColor',
@@ -48,4 +56,39 @@ export const colors = {
   color: 'var(--text-color)',
   'color-secondary': 'var(--text-color-secondary)',
   'color-primary': 'var(--primary-color-text)',
+}
+
+export const themeExtend = {
+  boxShadow: {
+    md: '0 3px 5px #00000005,0 0 2px #0000000d,0 1px 4px #00000014',
+  },
+  fontFamily: {
+    sans: ['var(--font-family)'],
+  },
+};
+
+/**
+ * Для иконок, чтобы можно было использовать icon-2xl, md:icon-3xl и тд
+ *
+ * @param matchUtilities
+ * @param theme
+ */
+export const iconsPluginCallback = ({ matchUtilities, theme }) => {
+  const fontSize = theme('fontSize');
+
+  matchUtilities(
+    {
+      icon: (value) => ({
+        'svg&': {
+          width: value,
+          height: value,
+        },
+      }),
+    },
+    {
+      values: Object.fromEntries(
+        Object.entries(fontSize).map(([key, value]) => [key, value[0]])
+      ),
+    }
+  );
 }

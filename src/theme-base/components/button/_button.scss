@@ -61,6 +61,15 @@
         }
     }
 
+    &.p-button-icon-only.button-icon-56 {
+        height: 56px;
+        width: 56px;
+
+        .p-button-icon {
+          font-size: 2rem;
+        }
+    }
+
     &.p-button-sm {
         $height-icon: 1rem;
 

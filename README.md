@@ -10,6 +10,28 @@ npm install @cdek/primereact
 @use '@cdek/primereact/dist/theme-light.css';
 ```
 
+Для поддержки старых верси браузера, нужны следующие телодвижения
+```bash
+npm install -D vite-plugin-string-replace
+```
+
+Далее в конфиге vite.config.ts
+```ts
+export default defineConfig({
+  // ...
+  plugins: [
+    //...
+    StringReplace([
+      {
+        search: '@layer primereact {',
+        replace: '@media screen {',
+      },
+    ]),
+    //...
+  ]
+});
+```
+
 ### Иконки
 
 В дизайне в основном используется https://tabler.io/icons/
@@ -55,15 +77,26 @@ npm install @tabler/icons-react
 
 если используется vite, обязательно добавить строчку в `vite.config.ts`
 ```ts
+//...
   resolve: {
-  alias: {
-    //...
-    '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
+    alias: {
+      //...
+      '@tabler/icons-react': '@tabler/icons-react/dist/esm/icons/index.mjs',
+    },
   },
-},
+//...
 ```
 
 если не добавить, будет оочень долгая сборка в дев режиме https://stackoverflow.com/questions/79194970/tabler-icons-for-react-slowing-down-app-on-initial-load
+
+#### Размеры иконок
+Если не используется tailwind, то в scss можно добавить
+```scss
+@use '@cdek/primereact/dist/utils/icons.scss';
+```
+тогда можно будет использвать классы из дизайна: вместо **text-2xl** -> **icon-2xl** и тд
+
+Если используется tailwind, то подключение ниже
 
 ### Иконки с CDN
 
@@ -75,4 +108,53 @@ npm install @tabler/icons-react
   rel="stylesheet"
   href="https://public-static.cdek.ru/common/icons/v3.30.0/tabler-icons.min.css"
 />
+```
+
+### Подключение Tailwind
+
+Используем v3
+```bash
+npm install -D tailwindcss@^3.0.0 postcss autoprefixer
+```
+
+Конфиг для темы tailwind.config.js
+```ts
+/** @type {import('tailwindcss').Config} */
+import { colors, screens, iconsPluginCallback } from '@cdek/primereact/dist/tailwind';
+import plugin from 'tailwindcss/plugin';
+
+export default {
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  theme: {
+    colors,
+    screens,
+    extend: {
+      ...themeExtend,
+    },
+  },
+  plugins: [
+    // для иконок, чтобы можно было использовать icon-2xl, icon-[111px], md:icon-3xl
+    plugin(iconsPluginCallback),
+  ],
+};
+```
+
+Конфиг postcss.config.js
+```js
+export default {
+  plugins: {
+    'postcss-import': {},
+    tailwindcss: {},
+    autoprefixer: {},
+  },
+};
+```
+
+Далее в своем проекте подключаем
+
+```scss
+@use '@cdek/primereact/dist/utils/tailwind.scss';
+
+@tailwind base;
+@tailwind utilities;
 ```

@@ -40,4 +40,12 @@
             border-left-style: dashed;
         }
     }
+
+  @for $i from 0 through 10 {
+    $value: $i * 0.25rem;
+
+    &.p-divider-my-#{$i} {
+      margin: 0 $value !important;
+    }
+  }
 }
