@@ -1,5 +1,6 @@
 .p-float-label {
   // label в обычном состоянии 1 rem
+  & > .p-inputwrapper label,
   & > label {
     font-size: 1rem !important;
     color: var(--text-color-secondary);
@@ -10,6 +11,7 @@
   & > .p-inputwrapper-filled ~ label,
   & > .p-inputwrapper-focus ~ label,
   & > .p-tooltip-target-wrapper ~ label,
+  & > .p-inputwrapper:has(input.p-filled) ~ label,
   & > input.p-filled ~ label,
   & > input:-webkit-autofill ~ label,
   & > input:focus ~ label,
