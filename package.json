@@ -1,6 +1,6 @@
 {
   "name": "@cdek/primereact",
-  "version": "1.0.1",
+  "version": "1.2.3",
   "description": "Тема для primereact",
   "scripts": {
     "build": "npm run clean && npm run cp && npm run build-themes",
@@ -16,9 +16,6 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@tabler/icons-webfont": "3.16.0"
-  },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
     "@storybook/addon-essentials": "^8.4.3",
@@ -30,6 +27,7 @@
     "@storybook/react-docgen-typescript-plugin": "^1.0.1",
     "@storybook/react-webpack5": "^8.4.3",
     "@storybook/test": "^8.4.3",
+    "@fontsource/roboto": "^5.1.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

@@ -271,3 +271,9 @@
 @function shade($color, $percentage) {
 	@return mix(#000, $color, $percentage);
 }
+
+@mixin media-hover {
+  @media (hover: hover) and (pointer: fine) {
+    @content;
+  }
+}

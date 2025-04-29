@@ -7,12 +7,10 @@
 }
 
 @mixin button-hover($color-background: transparent, $color-text: transparent, $color-border: transparent) {
-  @media (hover: hover) and (pointer: fine) {
+  @include media-hover {
     background: $color-background;
     color: $color-text;
     border-color: $color-border;
-
-    box-shadow: $buttonHoverShadow;
   }
 }
 
@@ -60,6 +58,15 @@
 
         .p-button-label {
             display: none;
+        }
+    }
+
+    &.p-button-icon-only.button-icon-56 {
+        height: 56px;
+        width: 56px;
+
+        .p-button-icon {
+          font-size: 2rem;
         }
     }
 

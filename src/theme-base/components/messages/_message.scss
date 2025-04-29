@@ -22,7 +22,6 @@
             color: $color-icon;
             border-color: $color-icon;
 
-            box-shadow: $buttonHoverShadow;
             transition: $formElementTransition;
         }
     }
@@ -56,32 +55,32 @@
 
     &.p-message-info {
         @include style-severity(
-            $color-background: $infoMessageBg, 
-            $border: $infoMessageBorder, 
+            $color-background: $infoMessageBg,
+            $border: $infoMessageBorder,
             $color-icon: $infoMessageIconColor
         );
     }
 
     &.p-message-success {
         @include style-severity(
-            $color-background: $successMessageBg, 
-            $border: $successMessageBorder, 
+            $color-background: $successMessageBg,
+            $border: $successMessageBorder,
             $color-icon: $successMessageIconColor
         );
     }
 
     &.p-message-warn {
         @include style-severity(
-            $color-background: $warningMessageBg, 
-            $border: $warningMessageBorder, 
+            $color-background: $warningMessageBg,
+            $border: $warningMessageBorder,
             $color-icon: $warningMessageIconColor
         );
     }
 
     &.p-message-error {
         @include style-severity(
-            $color-background: $dangerMessageBg, 
-            $border: $dangerMessageBorder, 
+            $color-background: $dangerMessageBg,
+            $border: $dangerMessageBorder,
             $color-icon: $dangerMessageIconColor
         );
     }

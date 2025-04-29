@@ -8,7 +8,7 @@
 
     .p-button {
         flex-grow: 1;
-        
+
         background: $selectButtonBg;
         border: $selectButtonBorder;
         border-radius: $selectButtonBorderRadius;
@@ -25,14 +25,16 @@
         }
 
         &:not(.p-disabled):not(.p-highlight):hover {
+          @include media-hover {
             background: $selectButtonHoverBg;
             border-color: $selectButtonHoverBorderColor;
             color: $selectButtonHoverTextColor;
 
             .p-button-icon-left,
             .p-button-icon-right {
-                color: $selectButtonIconHoverColor;
+              color: $selectButtonIconHoverColor;
             }
+          }
         }
 
         &:not(.p-disabled).p-highlight {
@@ -46,14 +48,16 @@
             }
 
             &:hover {
+              @include media-hover {
                 background: $selectButtonActiveHoverBg;
                 border-color: $selectButtonActiveHoverBorderColor;
                 color: $selectButtonTextActiveHoverColor;
 
                 .p-button-icon-left,
                 .p-button-icon-right {
-                    color: $selectButtonIconActiveHoverColor;
+                  color: $selectButtonIconActiveHoverColor;
                 }
+              }
             }
         }
     }
