@@ -724,24 +724,29 @@ $infoMessageBg: $info-50;
 $infoMessageBorderColor: $info-200;
 $infoMessageBorder: 1px solid $infoMessageBorderColor;
 $infoMessageIconColor: $info-400;
+$infoMessageTextColor: $textColor;
 
 // Message/Severities/Success
 $successMessageBg: $success-50;
 $successMessageBorderColor: $success-200;
 $successMessageBorder: 1px solid $successMessageBorderColor;
 $successMessageIconColor: $success-400;
+$successMessageTextColor: $textColor;
+
 
 // Message/Severities/Warning
 $warningMessageBg: $warning-50;
 $warningMessageBorderColor: $warning-200;
 $warningMessageBorder: 1px solid $warningMessageBorderColor;
 $warningMessageIconColor: $warning-400;
+$warningMessageTextColor: $textColor;
 
 // Message/Severities/Danger
 $dangerMessageBg: $danger-50;
 $dangerMessageBorderColor: $danger-200;
 $dangerMessageBorder: 1px solid $dangerMessageBorderColor;
 $dangerMessageIconColor: $danger-400;
+$dangerMessageTextColor: $textColor;
 
 // Data/Paginator
 $paginatorBg: $surface-transparent;
