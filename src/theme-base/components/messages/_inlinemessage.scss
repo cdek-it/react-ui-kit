@@ -5,8 +5,9 @@
 
     &.p-inline-message-info {
         background: $infoMessageBg;
+        border: $infoMessageBorder;
         border-left: $infoMessageBorder;
-        border-width: $inlineMessageBorderWidth;
+        border-left-width: $inlineMessageBorderWidth;
         color: $infoMessageTextColor;
 
         .p-inline-message-icon {
@@ -16,8 +17,10 @@
 
     &.p-inline-message-success {
         background: $successMessageBg;
+        border: $successMessageBorder;
         border-left: $successMessageBorder;
-        border-width: $inlineMessageBorderWidth;
+        border-left-width: $inlineMessageBorderWidth;
+        
         color: $successMessageTextColor;
 
         .p-inline-message-icon {
@@ -27,8 +30,9 @@
 
     &.p-inline-message-warn {
         background: $warningMessageBg;
+        border: $warningMessageBorder;
         border-left: $warningMessageBorder;
-        border-width: $inlineMessageBorderWidth;
+        border-left-width: $inlineMessageBorderWidth;
         color: $warningMessageTextColor;
 
         .p-inline-message-icon {
@@ -38,8 +42,9 @@
 
     &.p-inline-message-error {
         background: $dangerMessageBg;
+        border: $dangerMessageBorder;
         border-left: $dangerMessageBorder;
-        border-width: $inlineMessageBorderWidth;
+        border-left-width: $inlineMessageBorderWidth;
         color: $dangerMessageTextColor;
 
         .p-inline-message-icon {
