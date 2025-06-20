@@ -1,11 +1,11 @@
-@import "_fonts";
-@import "_colors";
-@import "_generator";
-@import "_global";
-@import "_primary";
+@import "../theme-light/_fonts";
+@import "../theme-light/_colors";
+@import "../theme-light/_generator";
+@import "../theme-light/_global";
+@import "../theme-light/_primary";
 @import "_variables";
-@import "_root";
-@import "_media-query";
+@import "../theme-light/_root";
+@import "../theme-light/_media-query";
 @import "../../theme-base/_mixins";
 @import "../../theme-base/_common";
 
@@ -33,7 +33,7 @@
 @import "../../theme-base/components/input/_rating";
 @import "../../theme-base/components/input/_calendar";
 @import "../../theme-base/components/input/_autocomplete";
-@import "_float-label";
+@import "../theme-light/_float-label";
 //Panel
 @import '../../theme-base/components/panel/_tabview';
 @import "../../theme-base/components/panel/_divider";
@@ -83,6 +83,6 @@
 @import "../../theme-base/components/multimedia/_galleria";
 
 // external
-@import "_icons";
-@import "_list";
-@import "_scroll";
+@import "../theme-light/_icons";
+@import "../theme-light/_list";
+@import "../theme-light/_scroll";

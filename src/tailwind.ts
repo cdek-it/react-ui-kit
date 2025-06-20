@@ -65,6 +65,12 @@ export const themeExtend = {
   fontFamily: {
     sans: ['var(--font-family)'],
   },
+  zIndex: {
+    '1000': '1000',
+    '1010': '1010',
+    '1100': '1100',
+    '1110': '1110',
+  },
 };
 
 /**
