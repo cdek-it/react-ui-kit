@@ -1,5 +1,4 @@
-import '../src/themes/lara/lara-light/green/theme.css';
-import 'primereact/resources/primereact.min.css';
+import '../src/themes/theme-light/theme.scss';
 import 'primeicons/primeicons.css';
 
 /** @type { import('@storybook/react').Preview } */

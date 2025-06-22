@@ -22,11 +22,30 @@ const Template: StoryFn<ButtonProps> = (args: Partial<ButtonProps>) => (
 export const Primary = Template.bind({});
 Primary.args = {
   label: 'Primary Button',
-  className: 'p-button-primary',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Secondary Button',
   className: 'p-button-secondary',
+};
+
+export const Severity = () => {
+    return (
+        <div className="card flex flex-wrap justify-content-center gap-3">
+            <Button label="Primary" />
+            <Button label="Secondary" severity="secondary" />
+            <Button label="Success" severity="success" />
+            <Button label="Info" severity="info" />
+            <Button label="Warning" severity="warning" />
+            <Button label="Help" severity="help" />
+            <Button label="Danger" severity="danger" />
+        </div>
+    )
+};
+
+export const Danger = Template.bind({});
+Danger.args = {
+  label: 'Danger Button',
+  severity: 'danger',
 };
