@@ -12,7 +12,7 @@ npm install @cdek/primereact
 
 Для поддержки старых верси браузера, нужны следующие телодвижения
 ```bash
-sudo npm install -D vite-plugin-string-replace
+npm install -D vite-plugin-string-replace
 ```
 
 Далее в конфиге vite.config.ts
