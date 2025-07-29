@@ -68,6 +68,6 @@ version-release:
     # Поднятие версии и создания коммита с тегом
     - npm version patch --force
     # push коммита с новой версией и тегом
-    - git push --tags -f https://$GITLAB_CI_USER:$PRIVATE_TOKEN@$CI_SERVER_FQDN/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git HEAD:$CI_COMMIT_REF_NAME
+    - git push --tags -f https://$GITLAB_CI_USER:$PRIVATE_TOKEN@gitcode.cdek.ru/$CI_PROJECT_NAMESPACE/$CI_PROJECT_NAME.git HEAD:$CI_COMMIT_REF_NAME
   tags:
     - docker
