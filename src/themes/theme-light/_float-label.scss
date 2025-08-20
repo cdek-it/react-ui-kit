@@ -26,11 +26,20 @@
     opacity: 1;
   }
 
+  & > textarea ~ label {
+    background: $inputBg;
+  }
+
   // стили для вложенных компонетов input select и тд
   // изменяем высоту в отступ
-  & .p-inputtext.p-component {
+  & .p-inputtext.p-component:not(textarea), {
     height: 4rem !important;
     padding-top: 1rem !important;
+  }
+
+  & textarea.p-inputtext.p-component, {
+    padding-top: 1.75rem !important;
+    line-height: 1.5rem;
   }
   // стили для стрелки select
   // так как есть  padding-top: 1rem !important в родителе надо его убрать
