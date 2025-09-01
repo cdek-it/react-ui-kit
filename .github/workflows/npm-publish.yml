@@ -17,17 +17,13 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
 
-      - run: corepack enable
-
       - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+        run: npm ci
 
       - name: Run build
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: build
-      - run: npm publish
+        run: npm run build
+
+      - name: Publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
