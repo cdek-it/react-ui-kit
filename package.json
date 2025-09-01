@@ -1,6 +1,6 @@
 {
-  "name": "@cdek-it/primereact",
-  "version": "1.2.13",
+  "name": "@cdek-it/react-ui-kit",
+  "version": "1.2.14",
   "description": "Тема для primereact",
   "scripts": {
     "build": "npm run clean && npm run cp && npm run build-themes",
