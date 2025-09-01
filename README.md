@@ -2,12 +2,12 @@
 
 #### Установка
 ```bash
-npm install @cdek-id/react-ui-kit
+npm install @cdek-it/react-ui-kit
 ```
 
 далее в scss своего проекта прописать
 ```scss
-@use '@cdek-id/react-ui-kit/dist/theme-light.css';
+@use '@cdek-it/react-ui-kit/dist/theme-light.css';
 ```
 
 Для поддержки старых верси браузера, нужны следующие телодвижения
@@ -92,7 +92,7 @@ npm install @tabler/icons-react
 #### Размеры иконок
 Если не используется tailwind, то в scss можно добавить
 ```scss
-@use '@cdek-id/react-ui-kit/dist/utils/icons.scss';
+@use '@cdek-it/react-ui-kit/dist/utils/icons.scss';
 ```
 тогда можно будет использвать классы из дизайна: вместо **text-2xl** -> **icon-2xl** и тд
 
@@ -120,7 +120,7 @@ npm install -D tailwindcss@^3.0.0 postcss autoprefixer
 Конфиг для темы tailwind.config.js
 ```ts
 /** @type {import('tailwindcss').Config} */
-import { colors, screens, iconsPluginCallback } from '@cdek-id/react-ui-kit/dist/tailwind';
+import { colors, screens, iconsPluginCallback } from '@cdek-it/react-ui-kit/dist/tailwind';
 import plugin from 'tailwindcss/plugin';
 
 export default {
@@ -153,7 +153,7 @@ export default {
 Далее в своем проекте подключаем
 
 ```scss
-@use '@cdek-id/react-ui-kit/dist/utils/typography.scss';
+@use '@cdek-it/react-ui-kit/dist/utils/typography.scss';
 
 @tailwind base;
 @tailwind utilities;
