@@ -1,6 +1,6 @@
 {
   "name": "@cdek-it/react-ui-kit",
-  "version": "1.2.15",
+  "version": "2.3.22",
   "description": "Тема для primereact",
   "scripts": {
     "start": "storybook dev -p 6006 --ci",
