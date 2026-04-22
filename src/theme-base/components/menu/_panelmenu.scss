@@ -1,147 +1,318 @@
-.p-panelmenu {
-    &[data-pc-section="root"] {
-        display: flex;
-        flex-direction: column;
-        gap: $menuitemSpacing;
+@mixin panelmenuitem-link {
+  > .p-menuitem-content {
+    color: $menuitemTextColor;
+    transition: $listItemTransition;
+    border-radius: $menuitemBorderRadius;
+
+    .p-menuitem-link {
+      color: $menuitemTextColor;
+      padding: $menuitemPadding;
+      user-select: none;
+
+      .p-menuitem-text {
+        color: $menuitemTextColor;
+      }
+
+      .p-menuitem-icon {
+        color: $menuitemIconColor;
+        margin-right: $inlineSpacing;
+      }
+
+      .p-submenu-icon {
+        color: $menuitemIconColor;
+      }
     }
-    // Стиль заголовка
-    [data-pc-section="header"] {
-        padding: $menuitemPadding;
+  }
 
-        border-radius: $menuitemBorderRadius;
-        border: $menuitemBorder;
+  &.p-highlight {
+    > .p-menuitem-content {
+      color: $menuitemTextActiveColor;
+      background: $menuitemActiveBg;
 
-        background-color: $menuitemBg;
+      .p-menuitem-link {
+        .p-menuitem-text {
+          color: $menuitemTextActiveColor;
+        }
+
+        .p-menuitem-icon,
+        .p-submenu-icon {
+          color: $menuitemIconActiveColor;
+        }
+      }
+    }
+
+    &.p-focus {
+      > .p-menuitem-content {
+        background: $menuitemActiveFocusBg;
+      }
+    }
+  }
+
+  &:not(.p-highlight):not(.p-disabled) {
+    &.p-focus {
+      > .p-menuitem-content {
+        color: $panelmenuItemTextActiveColor;
+        background: $panelmenuItemActiveBg;
+
+        .p-menuitem-link {
+          .p-menuitem-text {
+            color: $panelmenuItemTextActiveColor;
+          }
+
+          .p-menuitem-icon,
+          .p-submenu-icon {
+            color: $panelmenuItemTextActiveColor;
+          }
+        }
+      }
+    }
+
+    > .p-menuitem-content {
+      &:hover {
+        color: $panelmenuItemTextActiveHoverColor;
+        background: $panelmenuItemActiveHoverBg;
+
+        .p-menuitem-link {
+          .p-menuitem-text {
+            color: $panelmenuItemTextActiveHoverColor;
+          }
+
+          .p-menuitem-icon,
+          .p-submenu-icon {
+            color: $panelmenuItemTextActiveHoverColor;
+          }
+
+          &.p-disabled {
+            color: var(--navigation-item-disabledTextHoverColor);
+            border-color: var(--surface-400);
+            background: var(--surface-400);
+
+            .p-menuitem-text,
+            .p-menuitem-icon,
+            .p-submenu-icon {
+              color: var(--navigation-item-disabledTextHoverColor);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.p-panelmenu {
+  .p-panelmenu-header {
+    outline: 0 none;
+
+    .p-panelmenu-header-content {
+      border: $panelmenuHeaderBorder; // default $accordionHeaderBorder;
+      color: $accordionHeaderTextColor;
+      background: $accordionHeaderBg;
+      border-radius: $borderRadius;
+      transition: $listItemTransition;
+
+      .p-panelmenu-header-link {
+        color: $accordionHeaderTextColor;
+        padding: $panelmenuHeaderPadding; // default $accordionHeaderPadding;
+        font-weight: $panelmenuHeaderFontWeight; // default $accordionHeaderFontWeight;
+
+        .p-submenu-icon {
+          margin-right: $inlineSpacing;
+        }
+
+        .p-menuitem-icon {
+          margin-right: $inlineSpacing;
+        }
+      }
+    }
+
+    &:not(.p-disabled) {
+      &:focus-visible {
+        .p-panelmenu-header-content {
+          @include focused-inset();
+        }
+      }
+    }
+
+    &:not(.p-highlight):not(.p-disabled):hover {
+      .p-panelmenu-header-content {
+        background: $panelmenuHeaderHoverBg; // default $accordionHeaderHoverBg;
+        border-color: $panelmenuHeaderHoverBorderColor; // default $accordionHeaderHoverBorderColor;
+        color: $accordionHeaderTextHoverColor;
+      }
+    }
+
+    &:not(.p-disabled).p-highlight {
+      .p-panelmenu-header-content {
+        background: $panelmenuHeaderActiveBg; // default $accordionHeaderActiveBg;
+        border-color: $panelmenuHeaderActiveBorderColor; // default $accordionHeaderActiveBorderColor;
+        color: $panelmenuHeaderTextActiveColor; // default $accordionHeaderTextActiveColor;
+        border-bottom-right-radius: $borderRadius;
+        border-bottom-left-radius: $borderRadius;
+        margin-bottom: 0;
+
+        border-top-right-radius: $borderRadius;
+        border-top-left-radius: $borderRadius;
 
         .p-panelmenu-header-link {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-            gap: $inlineSpacing;
+          color: $panelmenuHeaderTextActiveColor;
         }
+      }
 
-        .p-menuitem-text {
-            color: $menuitemTextColor;
+      &:hover {
+        .p-panelmenu-header-content {
+          border-color: $panelmenuHeaderActiveHoverBorderColor; // default $accordionHeaderActiveHoverBorderColor;
+          background: $panelmenuHeaderActiveHoverBg; // default $accordionHeaderActiveHoverBg;
+          color: $accordionHeaderTextActiveHoverColor;
         }
-
-        .p-menuitem-icon {
-            color: $menuitemTextColor;
-        }
-
-        .p-submenu-icon {
-            color: $menuitemIconColor;
-        }
-    }
-    // Стиль не активного заголовка по наведению
-    [data-pc-section="header"][aria-expanded="false"]:not([data-p-disabled="true"]):hover {
-        cursor: pointer;
-
-        background-color: $menuitemHoverBg;
-
-        .p-menuitem-text {
-            color: $menuitemHoverTextColor;
-        }
-
-        .p-menuitem-icon {
-            color: $menuitemHoverTextColor;
-        }
-
-        .p-submenu-icon {
-            color: $menuitemHoverIconColor;
-        }
+      }
     }
 
-    // Стиль активного заголовка
-    [data-pc-section="header"][aria-expanded="true"] {
-        background-color: $menuitemActiveBg;
+    &:is(.p-disabled) {
+      opacity: 1;
+      filter: none;
+      background: var(--surface-200);
+      border: 1px solid var(--navigation-item-disabledBorderColor);
+      border-radius: $borderRadius;
+      cursor: not-allowed;
 
-        .p-menuitem-text {
-            color: $menuitemActiveTextColor;
+      .p-panelmenu-header-content {
+        .p-panelmenu-header-link {
+          color: var(--gray-400);
         }
+      }
+    }
+  }
 
-        .p-menuitem-icon {
-            color: $menuitemActiveTextColor;
-        }
+  .p-panelmenu-content {
+    padding: 0.25rem 0 0 0.75rem; // default $verticalMenuPadding;
+    border: 0; // default $accordionContentBorder;
+    background: $accordionContentBg;
+    color: $accordionContentTextColor;
+    border-top: 0;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    border-bottom-right-radius: $borderRadius;
+    border-bottom-left-radius: $borderRadius;
 
-        .p-submenu-icon {
-            color: $menuitemActiveIconColor;
-        }
+    .p-panelmenu-root-list {
+      outline: 0 none;
     }
 
-    // Стиль активного заголовка по наведению
-    [data-pc-section="header"][aria-expanded="true"]:not([data-p-disabled="true"]):hover {
-        cursor: pointer;
-
-        background-color: $menuitemActiveHoverBg;
-
-        .p-menuitem-text {
-            color: $menuitemActiveTextColor;
-        }
-
-        .p-menuitem-icon {
-            color: $menuitemActiveTextColor;
-        }
-
-        .p-submenu-icon {
-            color: $menuitemActiveIconColor;
-        }
-    }
-
-    // Стиль заголовка в состоянии disabled
-    [data-pc-section="header"][data-p-disabled="true"] {
-        background-color: $disabledButtonBg;
-        border-color: $disabledButtonBorderColor;
-
-        .p-menuitem-icon {
-            color: $disabledButtonTextColor;
-        }
-
-        .p-menuitem-text {
-            color: $disabledButtonTextColor;
-        }
-
-        .p-submenu-icon {
-            color: $disabledButtonTextColor;
-        }
-    }
-
-    [data-pc-section="menu"] {
-        padding: $overlayMenuPadding 0 0 $menuNodeChildrenPadding;
-    }
-
-    [data-pc-section="submenu"] {
-        padding: $overlayMenuPadding 0 0 $menuNodeChildrenPadding;
-    }
-
-    @include menuitem();
-    @include menuitem-separator();
-
-    // Фикс стиля disabled
     .p-menuitem {
-        & > .p-menuitem-content:has(.p-disabled) {
-            pointer-events: none;
-            opacity: $disabledOpacity;
+      @include panelmenuitem-link();
 
-            .p-menuitem-link {
-                pointer-events: none;
+      .p-menuitem-content {
+        .p-menuitem-link {
+          .p-submenu-icon {
+            margin-right: $inlineSpacing;
+          }
 
-                background-color: $disabledButtonBg;
-                border-color: $disabledButtonBorderColor;
-
-                opacity: 1;
-            }
-
-            .p-menuitem-icon {
-                color: $disabledButtonTextColor;
-            }
+          &.p-disabled {
+            opacity: 1;
+            filter: none;
+            background: var(--surface-200);
+            border: 1px solid var(--navigation-item-disabledBorderColor);
+            border-radius: $borderRadius;
 
             .p-menuitem-text {
-                color: $disabledButtonTextColor;
+              color: var(--gray-400);
             }
-
-            .p-submenu-icon {
-                color: $disabledButtonTextColor;
-            }
+          }
         }
+      }
+
+      &.p-focus {
+        > .p-menuitem-content {
+          .p-menuitem-link {
+            &.p-disabled {
+              color: var(--navigation-item-disabledTextHoverColor);
+              border-color: var(--surface-400);
+              background: var(--surface-400);
+
+              .p-menuitem-text,
+              .p-menuitem-icon,
+              .p-submenu-icon {
+                color: var(--navigation-item-disabledTextHoverColor);
+              }
+            }
+          }
+        }
+      }
+
+      + .p-menuitem {
+        margin-top: 0.25rem;
+      }
     }
+
+    .p-menuitem-separator {
+      border-top: $divider;
+      margin: $menuSeparatorMargin;
+    }
+
+    .p-submenu-list:not(.p-panelmenu-root-list) {
+      padding: $treeNodeChildrenPadding;
+    }
+  }
+
+  .p-panelmenu-panel {
+    margin-bottom: $accordionSpacing;
+
+    @if $accordionSpacing == 0 {
+      .p-panelmenu-header {
+        .p-panelmenu-header-content {
+          border-radius: $borderRadius; // default 0;
+        }
+      }
+
+      .p-panelmenu-content {
+        border-radius: 0;
+      }
+
+      &:not(:first-child) {
+        .p-panelmenu-header {
+          .p-panelmenu-header-content {
+            border-top: 0 none;
+          }
+
+          &:not(.p-highlight):not(.p-disabled):hover,
+          &:not(.p-disabled).p-highlight:hover {
+            .p-panelmenu-header-content {
+              border-top: 0 none;
+            }
+          }
+        }
+      }
+
+      &:first-child {
+        .p-panelmenu-header {
+          .p-panelmenu-header-content {
+            border-top-right-radius: $borderRadius;
+            border-top-left-radius: $borderRadius;
+            border-bottom-right-radius: $borderRadius;
+            border-bottom-left-radius: $borderRadius;
+          }
+        }
+      }
+
+      &:last-child {
+        .p-panelmenu-header:not(.p-highlight) {
+          .p-panelmenu-header-content {
+            border-top-right-radius: $borderRadius;
+            border-top-left-radius: $borderRadius;
+            border-bottom-right-radius: $borderRadius;
+            border-bottom-left-radius: $borderRadius;
+          }
+        }
+
+        .p-panelmenu-content {
+          border-bottom-right-radius: $borderRadius;
+          border-bottom-left-radius: $borderRadius;
+        }
+      }
+    }
+
+    + .p-panelmenu-panel {
+      margin-top: 0.25rem;
+    }
+  }
 }

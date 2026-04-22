@@ -1,68 +1,69 @@
-// Surface
-$surface-0: $gray-0;
-$surface-900: $gray-900;
-$surface-800: $gray-800;
-$surface-700: $gray-700;
-$surface-600: $gray-600;
-$surface-500: $gray-500;
-$surface-400: $gray-400;
-$surface-300: $gray-300;
-$surface-200: $gray-200;
-$surface-100: $gray-100;
-$surface-50: $gray-50;
-$surface-ground: $white-100;
-$surface-section: $gray-alpha;
-$surface-card: $surface-ground;
-$surface-overlay: $black-20;
-$surface-border: $surface-200;
-$surface-hover: $surface-100;
-$surface-transparent: rgba(255, 255, 255, 0.0001);
-
 // General
-$colorScheme: "light";
-$primaryColor: #188700;
-$primaryColorHover: $primary-800;
-$primaryColorText: $white-100;
-$fontFamily: Roboto, Inter, Helvetica, Arial, sans-serif;
-$fontSize: 1rem;
-$fontWeight: normal;
-$textColor: $black-80;
-$textSecondaryColor: $black-60;
+$focusShadowWidth: 0.25rem;
+$primaryColor: var(--primary-color);
+$primaryColorHover: var(--primary-hoverColor);
+$secondaryColor: $gray-900;
+$secondaryColorHover: $gray-800;
+$tertiaryColor: $gray-200;
+$tertiaryColorHover: $gray-300;
 $highlightBg: $primaryColor;
+$primaryColorText: $black-100;
 $highlightTextColor: $primaryColorText;
-$borderRadius: 0.5rem;
-$inlineSpacing: 0.5rem;
-$disabledOpacity: 0.6;
+$textColor: var(--text-color);
+$textSecondaryColor: $gray-500;
+$borderColor: $secondaryColor;
 $dividerColor: $surface-border;
-$divider: 1px solid $dividerColor;
+$disabledBg: $gray-200;
+$disabledBorderColor: $gray-400;
 $focusOutlineColor: $primary-200;
+$focusBorderColor: $primary-600;
+$errorColor: $danger-600;
+$focusOutlineErrorColor: $danger-100;
+$maskBg: $surface-overlay;
+$actionIconBg: $surface-transparent;
+$actionIconColor: $black-60;
+$actionIconBorderColor: $surface-transparent;
+$actionIconHoverBg: $surface-hover;
+$actionIconHoverColor: $black-80;
+$actionIconHoverBorderColor: $surface-transparent;
+$fontFamily: var(--fontFamily-primary);
+$fontFamilySecondary: var(--fontFamily-secondary);
+$fontWeight: normal;
+$disabledOpacity: 0.6;
+$divider: 1px solid $dividerColor;
 $focusOutline: none;
 $focusOutlineOffset: none;
-$focusShadowWidth: 0.25rem;
 $focusShadow: 0 0 0 $focusShadowWidth $focusOutlineColor;
-$errorColor: $danger-400;
-$focusOutlineErrorColor: $danger-100;
 $focusShadowError: 0 0 0 $focusShadowWidth $focusOutlineErrorColor;
-$transitionDuration: .2s;
-$formElementTransition: background-color $transitionDuration, color $transitionDuration, border-color $transitionDuration, box-shadow $transitionDuration;
-$maskBg: $surface-overlay;
+$transitionDuration: 0.2s;
+$formElementTransition:
+  background-color $transitionDuration,
+  color $transitionDuration,
+  border-color $transitionDuration,
+  box-shadow $transitionDuration;
+$actionIconBorder: 1px solid $actionIconBorderColor;
+$actionIconTransition:
+  background-color $transitionDuration,
+  color $transitionDuration,
+  box-shadow $transitionDuration;
+$scaleSM: 0.875;
+$scaleLG: 1.25;
+$fontSize: 1rem;
+$borderRadius: 0.5rem;
+$borderRadiusLG: 0.5rem;
+$borderRadiusXL: 0.75rem;
+$borderRadius2XL: 1rem;
+$borderRadius3XL: 1.5rem;
+$borderRadiusFull: 7.142857142857143rem;
+$inlineSpacing: 0.5rem;
 $primeIconFontSize: 1rem;
 $loadingIconFontSize: 2rem;
 $actionIconWidth: 2rem;
 $actionIconHeight: 2rem;
-$actionIconBg: $surface-transparent;
-$actionIconColor: $black-60;
-$actionIconBorderColor: $surface-transparent;
-$actionIconBorder: 1px solid $actionIconBorderColor;
-$actionIconHoverBg: $surface-hover;
-$actionIconHoverColor: $black-80;
-$actionIconHoverBorderColor: $surface-transparent;
-$actionIconBorderRadius: $borderRadius;
-$actionIconTransition: background-color $transitionDuration, color $transitionDuration, box-shadow $transitionDuration;
-$scaleSM: 0.875;
-$scaleLG: 1.25;
+$actionIconBorderRadius: $borderRadiusXL;
 
 // Button/Common
+$buttonHoverShadowColor: $gray-300;
 $buttonHeight: 2.5rem;
 $buttonHeightSM: 2rem;
 $buttonHeightLG: 3.5rem;
@@ -71,11 +72,10 @@ $buttonPaddingTopBottom: 0rem;
 $buttonPaddingLeftRight: 1rem;
 $buttonPadding: $buttonPaddingTopBottom $buttonPaddingLeftRight;
 $buttonIconOnlyWidth: $buttonHeight;
-$buttonHoverShadowColor: $black-20;
-$buttonHoverShadow: 0 .25rem .25rem 0 $buttonHoverShadowColor;
+$buttonHoverShadow: 0 0.25rem 0.25rem 0 $buttonHoverShadowColor;
 $roundedButtonBorderRadius: 100px;
 
-// Button/Basic
+// Button/Brand
 $buttonBg: $primaryColor;
 $buttonTextColor: $primaryColorText;
 $buttonBorderColor: $surface-transparent;
@@ -85,40 +85,87 @@ $buttonHoverTextColor: $primaryColorText;
 $buttonActiveBg: $buttonBg;
 $buttonActiveTextColor: $buttonTextColor;
 
+// Button/Primary
+$secondaryButtonBg: $secondaryColor;
+$secondaryButtonTextColor: $white-100;
+$secondaryButtonBorderColor: $surface-transparent;
+$secondaryButtonHoverBg: $secondaryColorHover;
+$secondaryButtonHoverTextColor: $white-100;
+$secondaryButtonHoverBorderColor: $surface-transparent;
+$secondaryButtonActiveBg: $secondaryButtonBg;
+$secondaryButtonActiveTextColor: $secondaryButtonTextColor;
+$secondaryButtonActiveBorderColor: $surface-transparent;
+
+// Button/Secondary
+$helpButtonBg: $tertiaryColor;
+$helpButtonTextColor: $primaryColorText;
+$helpButtonBorderColor: $surface-transparent;
+$helpButtonHoverBg: $tertiaryColorHover;
+$helpButtonHoverTextColor: $secondaryColor;
+$helpButtonHoverBorderColor: $surface-transparent;
+$helpButtonActiveBg: $helpButtonBg;
+$helpButtonActiveTextColor: $helpButtonTextColor;
+$helpButtonActiveBorderColor: $surface-transparent;
+
 // Button/Disabled
-$disabledButtonBg: $black-10;
+$disabledButtonBg: $disabledBg;
 $disabledButtonTextColor: $textSecondaryColor;
-$disabledButtonBorderColor: $surface-border;
+$disabledButtonBorderColor: $disabledBorderColor;
 
 // Button/Outlined
 $outlinedButtonBg: $surface-transparent;
 $outlinedButtonTextColor: $buttonBg;
-$outlinedButtonBorderColor: $primary-200;
+$outlinedButtonBorderColor: $buttonBg;
 $outlinedButtonHoverBg: $surface-transparent;
-$outlinedButtonHoverTextColor: $buttonBg;
-$outlinedButtonHoverBorderColor: $buttonBg;
+$outlinedButtonHoverTextColor: $primary-600;
+$outlinedButtonHoverBorderColor: $primary-600;
 $outlinedButtonActiveBg: $surface-transparent;
 $outlinedButtonActiveTextColor: $buttonBg;
-$outlinedButtonActiveBorderColor: $primary-200;
-
-// Misc/Tag
-$tagHeight: 1.5rem;
-$tagFontSize: 0.875rem;
-$tagPadding: 0.5rem;
+$outlinedButtonActiveBorderColor: $buttonBg;
 
 // Button/Text
-$textButtonBg: $surface-ground;
-$textButtonTextColor: $buttonBg;
-$textButtonHoverBg: $primary-alpha;
-$textButtonHoverTextColor: $buttonBg;
-$textButtonActiveBg: $surface-ground;
-$textButtonActiveTextColor: $buttonBg;
+$textButtonBg: $surface-transparent;
+$textButtonTextColor: $primaryColorText;
+$textButtonHoverBg: $gray-200;
+$textButtonHoverTextColor: $primaryColorText;
+$textButtonActiveBg: $textButtonBg;
+$textButtonActiveTextColor: $primaryColorText;
+
+// Button/Link
+$linkButtonBg: $white-100;
+$linkButtonTextColor: $primaryColorText;
+$linkButtonHoverBg: $white-100;
+$linkButtonHoverTextColor: $gray-500;
+$linkButtonActiveBg: $white-100;
+$linkButtonActiveTextColor: $primaryColorText;
+$linkDisabledButtonBg: $white-100;
+$linkDisabledButtonTextColor: $gray-500;
+$linkDisabledButtonBorderColor: $surface-transparent;
+
+// Button/Severity/Secondary/Outlined
+$secondaryOutlinedButtonBg: $surface-transparent;
+$secondaryOutlinedButtonTextColor: $secondaryButtonBg;
+$secondaryOutlinedButtonBorderColor: $secondaryButtonBg;
+$secondaryOutlinedButtonHoverBg: $surface-transparent;
+$secondaryOutlinedButtonHoverTextColor: $gray-600;
+$secondaryOutlinedButtonHoverBorderColor: $gray-600;
+$secondaryOutlinedButtonActiveBg: $surface-transparent;
+$secondaryOutlinedButtonActiveTextColor: $secondaryButtonBg;
+$secondaryOutlinedButtonActiveBorderColor: $secondaryButtonBg;
+
+// Button/Severity/Secondary/Text
+$secondaryTextButtonBg: $surface-transparent;
+$secondaryTextButtonTextColor: $white-100;
+$secondaryTextButtonHoverBg: $black-10;
+$secondaryTextButtonHoverTextColor: $white-100;
+$secondaryTextButtonActiveBg: $secondaryTextButtonBg;
+$secondaryTextButtonActiveTextColor: $secondaryTextButtonTextColor;
 
 // Button/Severity/Danger/Basic
-$dangerButtonBg: $danger-400;
+$dangerButtonBg: $danger-300;
 $dangerButtonTextColor: $primaryColorText;
 $dangerButtonBorderColor: $surface-transparent;
-$dangerButtonHoverBg: $danger-500;
+$dangerButtonHoverBg: $danger-400;
 $dangerButtonHoverTextColor: $primaryColorText;
 $dangerButtonHoverBorderColor: $surface-transparent;
 $dangerButtonActiveBg: $dangerButtonBg;
@@ -127,43 +174,39 @@ $dangerButtonActiveBorderColor: $surface-transparent;
 
 // Button/Severity/Danger/Outlined
 $dangerOutlinedButtonBg: $surface-transparent;
-$dangerOutlinedButtonTextColor: $dangerButtonBg;
-$dangerOutlinedButtonBorderColor: $danger-200;
+$dangerOutlinedButtonTextColor: $danger-500;
+$dangerOutlinedButtonBorderColor: $danger-500;
 $dangerOutlinedButtonHoverBg: $surface-transparent;
-$dangerOutlinedButtonHoverTextColor: $dangerButtonBg;
-$dangerOutlinedButtonHoverBorderColor: $dangerButtonBg;
+$dangerOutlinedButtonHoverTextColor: $danger-600;
+$dangerOutlinedButtonHoverBorderColor: $danger-600;
 $dangerOutlinedButtonActiveBg: $surface-transparent;
-$dangerOutlinedButtonActiveTextColor: $dangerButtonBg;
-$dangerOutlinedButtonActiveBorderColor: $danger-200;
+$dangerOutlinedButtonActiveTextColor: $danger-500;
+$dangerOutlinedButtonActiveBorderColor: $danger-500;
 
 // Button/Severity/Danger/Text
-$dangerTextButtonBg: $surface-ground;
-$dangerTextButtonTextColor: $dangerButtonBg;
-$dangerTextButtonHoverBg: $danger-alpha;
-$dangerTextButtonHoverTextColor: $dangerButtonBg;
-$dangerTextButtonActiveBg: $surface-ground;
-$dangerTextButtonActiveTextColor: $dangerButtonBg;
+$dangerTextButtonBg: $surface-transparent;
+$dangerTextButtonTextColor: $danger-500;
+$dangerTextButtonHoverBg: $danger-100;
+$dangerTextButtonHoverTextColor: $danger-600;
+$dangerTextButtonActiveBg: $surface-transparent;
+$dangerTextButtonActiveTextColor: $dangerTextButtonTextColor;
 
 // Button/Severity/Warning/Basic
-$warningButtonBg: $warning-400;
+$warningButtonBg: $warning-300;
 $warningButtonTextColor: $primaryColorText;
 $warningButtonBorderColor: $surface-transparent;
-$warningButtonHoverBg: $warning-500;
+$warningButtonHoverBg: $warning-400;
 $warningButtonHoverTextColor: $primaryColorText;
 $warningButtonHoverBorderColor: $surface-transparent;
 $warningButtonActiveBg: $warningButtonBg;
 $warningButtonActiveTextColor: $primaryColorText;
 $warningButtonActiveBorderColor: $surface-transparent;
 
-// Button/Scondary
-$secondaryButtonBg: $black-40;
-$secondaryButtonTextColor: $white-100;
-
 // Button/Severity/Success/Basic
-$successButtonBg: $success-400;
+$successButtonBg: $success-300;
 $successButtonTextColor: $primaryColorText;
 $successButtonBorderColor: $surface-transparent;
-$successButtonHoverBg: $success-500;
+$successButtonHoverBg: $success-400;
 $successButtonHoverTextColor: $primaryColorText;
 $successButtonHoverBorderColor: $surface-transparent;
 $successButtonActiveBg: $successButtonBg;
@@ -172,28 +215,28 @@ $successButtonActiveBorderColor: $surface-transparent;
 
 // Button/Severity/Success/Outlined
 $successOutlinedButtonBg: $surface-transparent;
-$successOutlinedButtonTextColor: $successButtonBg;
-$successOutlinedButtonBorderColor: $success-200;
+$successOutlinedButtonTextColor: $success-500;
+$successOutlinedButtonBorderColor: $success-500;
 $successOutlinedButtonHoverBg: $surface-transparent;
-$successOutlinedButtonHoverTextColor: $successButtonBg;
-$successOutlinedButtonHoverBorderColor: $successButtonBg;
+$successOutlinedButtonHoverTextColor: $success-600;
+$successOutlinedButtonHoverBorderColor: $success-600;
 $successOutlinedButtonActiveBg: $surface-transparent;
-$successOutlinedButtonActiveTextColor: $successButtonBg;
-$successOutlinedButtonActiveBorderColor: $success-200;
+$successOutlinedButtonActiveTextColor: $success-500;
+$successOutlinedButtonActiveBorderColor: $success-500;
 
 // Button/Severity/Success/Text
-$successTextButtonBg: $surface-ground;
-$successTextButtonTextColor: $successButtonBg;
-$successTextButtonHoverBg: $success-alpha;
-$successTextButtonHoverTextColor: $successButtonBg;
-$successTextButtonActiveBg: $surface-ground;
-$successTextButtonActiveTextColor: $successButtonBg;
+$successTextButtonBg: $surface-transparent;
+$successTextButtonTextColor: $success-500;
+$successTextButtonHoverBg: $success-100;
+$successTextButtonHoverTextColor: $success-600;
+$successTextButtonActiveBg: $surface-transparent;
+$successTextButtonActiveTextColor: $successTextButtonTextColor;
 
 // Button/Severity/Info/Basic
-$infoButtonBg: $info-400;
+$infoButtonBg: $info-300;
 $infoButtonTextColor: $primaryColorText;
 $infoButtonBorderColor: $surface-transparent;
-$infoButtonHoverBg: $info-500;
+$infoButtonHoverBg: $info-400;
 $infoButtonHoverTextColor: $primaryColorText;
 $infoButtonHoverBorderColor: $surface-transparent;
 $infoButtonActiveBg: $infoButtonBg;
@@ -202,85 +245,59 @@ $infoButtonActiveBorderColor: $surface-transparent;
 
 // Button/Severity/Info/Outlined
 $infoOutlinedButtonBg: $surface-transparent;
-$infoOutlinedButtonTextColor: $infoButtonBg;
-$infoOutlinedButtonBorderColor: $info-200;
+$infoOutlinedButtonTextColor: $info-500;
+$infoOutlinedButtonBorderColor: $info-500;
 $infoOutlinedButtonHoverBg: $surface-transparent;
-$infoOutlinedButtonHoverTextColor: $infoButtonBg;
-$infoOutlinedButtonHoverBorderColor: $infoButtonBg;
-$infoOutlinedButtonActiveBg: $surface-transparent;
-$infoOutlinedButtonActiveTextColor: $infoButtonBg;
-$infoOutlinedButtonActiveBorderColor: $info-200;
+$infoOutlinedButtonHoverTextColor: $info-600;
+$infoOutlinedButtonHoverBorderColor: $info-600;
+$infoOutlinedButtonActiveBg: $infoOutlinedButtonBg;
+$infoOutlinedButtonActiveTextColor: $info-500;
+$infoOutlinedButtonActiveBorderColor: $info-500;
 
 // Button/Severity/Info/Text
-$infoTextButtonBg: $surface-ground;
-$infoTextButtonTextColor: $infoButtonBg;
-$infoTextButtonHoverBg: $info-alpha;
-$infoTextButtonHoverTextColor: $infoButtonBg;
-$infoTextButtonActiveBg: $surface-ground;
-$infoTextButtonActiveTextColor: $infoButtonBg;
-
-// Button/Severity/Help/Basic
-$helpButtonBg: $help-400;
-$helpButtonTextColor: $primaryColorText;
-$helpButtonBorderColor: $surface-transparent;
-$helpButtonHoverBg: $help-500;
-$helpButtonHoverTextColor: $primaryColorText;
-$helpButtonHoverBorderColor: $surface-transparent;
-$helpButtonActiveBg: $helpButtonBg;
-$helpButtonActiveTextColor: $primaryColorText;
-$helpButtonActiveBorderColor: $surface-transparent;
+$infoTextButtonBg: $surface-transparent;
+$infoTextButtonTextColor: $info-500;
+$infoTextButtonHoverBg: $info-100;
+$infoTextButtonHoverTextColor: $info-600;
+$infoTextButtonActiveBg: $surface-transparent;
+$infoTextButtonActiveTextColor: $infoTextButtonTextColor;
 
 // Button/Severity/Help/Outlined
 $helpOutlinedButtonBg: $surface-transparent;
-$helpOutlinedButtonTextColor: $helpButtonBg;
-$helpOutlinedButtonBorderColor: $help-200;
+$helpOutlinedButtonTextColor: $gray-500;
+$helpOutlinedButtonBorderColor: $gray-500;
 $helpOutlinedButtonHoverBg: $surface-transparent;
-$helpOutlinedButtonHoverTextColor: $helpButtonBg;
-$helpOutlinedButtonHoverBorderColor: $helpButtonBg;
-$helpOutlinedButtonActiveBg: $surface-transparent;
-$helpOutlinedButtonActiveTextColor: $helpButtonBg;
-$helpOutlinedButtonActiveBorderColor: $help-200;
+$helpOutlinedButtonHoverTextColor: $gray-600;
+$helpOutlinedButtonHoverBorderColor: $gray-600;
+$helpOutlinedButtonActiveBg: $helpOutlinedButtonBg;
+$helpOutlinedButtonActiveTextColor: $helpOutlinedButtonTextColor;
+$helpOutlinedButtonActiveBorderColor: $helpOutlinedButtonBorderColor;
 
 // Button/Severity/Help/Text
-$helpTextButtonBg: $surface-ground;
-$helpTextButtonTextColor: $helpButtonBg;
-$helpTextButtonHoverBg: $help-alpha;
-$helpTextButtonHoverTextColor: $helpButtonBg;
-$helpTextButtonActiveBg: $surface-ground;
-$helpTextButtonActiveTextColor: $helpButtonBg;
+$helpTextButtonBg: $surface-transparent;
+$helpTextButtonTextColor: $black-100;
+$helpTextButtonHoverBg: $gray-100;
+$helpTextButtonHoverTextColor: $secondaryColor;
+$helpTextButtonActiveBg: $helpTextButtonBg;
+$helpTextButtonActiveTextColor: $helpTextButtonTextColor;
 
 // Misc/Skeleton
 $skeletonBg: $surface-200;
 $skeletonAnimationBg: rgba(255, 255, 255, 0.1);
 
-// Misc/Badge
-$badgeBg: $primaryColor;
-$badgeTextColor: $primaryColorText;
-$badgeMinWidth: 1.5rem;
-$badgeHeight: 1.5rem;
-$badgeFontWeight: bold;
-$badgeFontSize: 0.75rem;
-$badgeDotSize: 0.5rem;
-
 // Misc/Chip
-$chipHeight: 1.75rem;
-$chipBg: $black-10;
+$chipBg: $surface-100;
 $chipTextColor: $textColor;
-$chipBorderRadius: 0.25rem;
 $chipBorderColor: $surface-transparent;
-$chipBorder: 1px solid $chipBorderColor;
+$chipHeight: 1.75rem;
+$chipBorderRadius: $borderRadiusLG;
 $chipPaddingTopBottom: 0rem;
 $chipPaddingLeftRight: 0.5rem;
+$chipBorder: 1px solid $chipBorderColor;
 $chipPadding: $chipPaddingTopBottom $chipPaddingLeftRight;
 
-// Misc/Avatar
-$avatarBg: $primaryColor;
-$avatarTextColor: $primaryColorText;
-$avatarBorderColor: $dividerColor;
-$avatarBorder: 1px solid $avatarBorderColor;
-
 // Overlay/Tooltip
-$tooltipBg: $surface-800;
+$tooltipBg: $gray-900;
 $tooltipTextColor: $surface-ground;
 $tooltipPaddingTopBottom: 0.5rem;
 $tooltipPaddingLeftRight: 1rem;
@@ -289,38 +306,44 @@ $tooltipPadding: $tooltipPaddingTopBottom $tooltipPaddingLeftRight;
 // Overlay/Overlay
 $overlayContentBorderColor: $surface-border;
 $overlayContentBorder: 1px solid $overlayContentBorderColor;
-$overlayContentBg: $surface-ground;
+$overlayContentBg: $surface-card;
 $overlayContainerShadowColor: $black-20;
-$overlayContainerShadow: 0 .25rem .25rem 0 $overlayContainerShadowColor;
+$overlayContainerShadow: 0 0.25rem 0.5rem 0 $overlayContainerShadowColor;
 
 // Overlay/Dialog/Header
-$dialogHeaderBg: $surface-ground;
-$dialogHeaderBorderColor: $surface-border;
-$dialogHeaderBorder: 1px solid $dialogHeaderBorderColor;
-$dialogHeaderTextColor: $textColor;
-$dialogHeaderFontWeight: bold;
 $dialogHeaderFontSize: 1.25rem;
+$dialogHeaderIconPadding: 0.5rem;
 $dialogHeaderPaddingTopBottom: 1rem;
 $dialogHeaderPaddingLeftRight: 1.5rem;
-$dialogHeaderPadding: $dialogHeaderPaddingLeftRight $dialogHeaderPaddingLeftRight $dialogHeaderPaddingTopBottom;
+$dialogHeaderBg: $overlayContentBg;
+$dialogHeaderBorderColor: $surface-border;
+$dialogHeaderTextColor: $textColor;
+$dialogHeaderBorder: 1px solid $dialogHeaderBorderColor;
+$dialogHeaderFontWeight: bold;
+$dialogHeaderPadding: $dialogHeaderPaddingLeftRight
+  $dialogHeaderPaddingLeftRight $dialogHeaderPaddingTopBottom;
 
 // Overlay/Dialog/Body
 $dialogContentPaddingTopBottom: 1.5rem;
 $dialogContentPaddingLeftRight: 1.5rem;
-$dialogContentPadding: $dialogContentPaddingTopBottom $dialogContentPaddingLeftRight;
+$dialogContentPadding: $dialogContentPaddingTopBottom
+  $dialogContentPaddingLeftRight;
 
 // Overlay/Dialog/Footer
 $dialogFooterBorderColor: $surface-transparent;
 $dialogFooterBorder: 1px solid $dialogFooterBorderColor;
 $dialogFooterPaddingTopBottom: 0rem;
 $dialogFooterPaddingLeftRight: 1.5rem;
-$dialogFooterPadding: $dialogFooterPaddingTopBottom $dialogFooterPaddingLeftRight $dialogFooterPaddingLeftRight;
+$dialogFooterPadding: $dialogFooterPaddingTopBottom
+  $dialogFooterPaddingLeftRight $dialogFooterPaddingLeftRight;
+$dialogFooterButtonGap: 0.5rem;
 
 // Menu/Common
 $verticalMenuPadding: 0.25rem;
 $menuSeparatorMarginTopBottom: 0.25rem;
 $menuSeparatorMarginLeftRight: 0rem;
-$menuSeparatorMargin: $menuSeparatorMarginTopBottom $menuSeparatorMarginLeftRight;
+$menuSeparatorMargin: $menuSeparatorMarginTopBottom
+  $menuSeparatorMarginLeftRight;
 $menuWidth: 8rem;
 $menuBg: $surface-transparent;
 $menuBorderColor: $surface-transparent;
@@ -345,10 +368,10 @@ $menuitemHoverIconColor: $textColor;
 $menuitemFocusBg: $surface-hover;
 $menuitemFocusTextColor: $textColor;
 $menuitemFocusIconColor: $textColor;
-$menuitemActiveBg: $primaryColor;
-$menuitemActiveTextColor: $primaryColorText;
-$menuitemActiveIconColor: $primaryColorText;
-$menuitemActiveHoverBg: $primaryColorHover;
+$menuitemActiveBg: $secondaryColor;
+$menuitemActiveTextColor: $white-100;
+$menuitemActiveIconColor: $white-100;
+$menuitemActiveHoverBg: $secondaryColorHover;
 $menuitemSubmenuIconFontSize: 1.25rem;
 
 // Menu/Submenu
@@ -369,30 +392,22 @@ $overlayMenuBorder: 1px solid $overlayMenuBorderColor;
 $overlayMenuShadow: $overlayContainerShadow;
 $overlayMenuPadding: $verticalMenuPadding;
 
-// Menu/Breadcrumb
-$breadcrumbPadding: 0rem;
-$breadcrumbBg: $surface-transparent;
-$breadcrumbBorder: none;
-$breadcrumbItemTextColor: $menuitemTextColor;
-$breadcrumbItemIconColor: $menuitemTextColor;
-$breadcrumbLastItemTextColor: $menuitemTextColor;
-$breadcrumbLastItemIconColor: $menuitemTextColor;
-$breadcrumbSeparatorColor: $textColor;
-
 // Form/InputText
 $inputPaddingTopBottom: 0rem;
 $inputPaddingLeftRight: 0.75rem;
-$inputPadding: $inputPaddingTopBottom $inputPaddingLeftRight;
+$inputPaddingTop: 0.75rem;
 $inputTextFontSize: 1rem;
-$inputBg: $surface-ground;
+$inputBg: $surface-card;
 $inputTextColor: $textColor;
 $inputIconColor: $textColor;
-$inputBorderColor: $surface-border;
-$inputBorder: 1px solid $inputBorderColor;
-$inputHoverBorderColor: $primaryColor;
-$inputFocusBorderColor: $primaryColor;
+$inputBorderColor: $gray-300;
+$inputHoverBorderColor: $success-600;
+$inputActiveBorderColor: $focusBorderColor;
+$inputFocusBorderColor: $primary-600;
 $inputErrorBorderColor: $errorColor;
 $inputPlaceholderTextColor: $textSecondaryColor;
+$inputPadding: $inputPaddingTopBottom $inputPaddingLeftRight;
+$inputBorder: 1px solid $inputBorderColor;
 
 // Form/InputGroup
 $inputGroupBg: $inputBg;
@@ -405,24 +420,34 @@ $checkboxHeight: 1.5rem;
 $checkboxBorder: $inputBorder;
 $checkboxBorderRadius: 0.25rem;
 $checkboxIconFontSize: 1rem;
-$checkboxActiveBorderColor: $primaryColor;
-$checkboxActiveBg: $primaryColor;
-$checkboxIconActiveColor: $primaryColorText;
-$checkboxActiveHoverBg: $primaryColorHover;
-$checkboxIconActiveHoverColor: $primaryColorText;
-$checkboxActiveHoverBorderColor: $primaryColorHover;
+$checkboxActiveBorderColor: $secondaryColor;
+$checkboxActiveBg: $secondaryColor;
+$checkboxIconActiveColor: $white-100;
+$checkboxActiveHoverBg: $gray-800;
+$checkboxIconActiveHoverColor: $white-100;
+$checkboxActiveHoverBorderColor: $surface-800;
 
-// Form/RadioButton
+// radiobutton
+$radiobuttonBorder: $inputBorder;
 $radiobuttonWidth: 1.5rem;
 $radiobuttonHeight: 1.5rem;
-$radiobuttonBorder: $inputBorder;
-$radiobuttonIconSize: 0.75rem;
-$radiobuttonActiveBorderColor: $primaryColor;
-$radiobuttonActiveBg: $primaryColor;
-$radiobuttonIconActiveColor: $primaryColorText;
-$radiobuttonActiveHoverBg: $primaryColorHover;
-$radiobuttonIconActiveHoverColor: $primaryColorText;
-$radiobuttonActiveHoverBorderColor: $primaryColorHover;
+$radiobuttonIconSize: 10px;
+$radiobuttonActiveBorderColor: $secondaryColor;
+$radiobuttonActiveBg: $secondaryColor;
+$radiobuttonIconActiveColor: $white-100;
+$radiobuttonActiveHoverBg: $secondaryColorHover;
+$radiobuttonIconActiveHoverColor: $white-100;
+$radiobuttonActiveHoverBorderColor: $secondaryColorHover;
+$radiobuttonHoverBorderColor: $gray-900;
+$radiobuttonInvalidBorderColor: $danger-400;
+$radiobuttonInvalidActiveBorderColor: $gray-900;
+$radiobuttonDisabledBg: $gray-200;
+$radiobuttonDisabledBorderColor: $gray-300;
+$radiobuttonDisabledIconBg: $gray-500;
+
+$inputFilledBg: $gray-200;
+$inputFilledHoverBg: $inputFilledBg;
+$inputFilledFocusBg: $gray-50;
 
 // Form/inputSwitch
 $inputSwitchWidth: 2.5rem;
@@ -432,61 +457,66 @@ $inputSwitchHandleWidth: 1rem;
 $inputSwitchHandleHeight: 1rem;
 $inputSwitchHandleBorderRadius: 100px;
 $inputSwitchSliderPadding: 0.25rem;
-$inputSwitchSliderOffBg: $surface-300;
+$inputSwitchSliderOffBg: $surface-500;
 $inputSwitchHandleOffBg: $inputBg;
-$inputSwitchSliderOffHoverBg: $primaryColorHover;
-$inputSwitchSliderOnBg: $primaryColor;
-$inputSwitchSliderOnHoverBg: $primaryColorHover;
-$inputSwitchHandleOnBg: $inputBg;
-
-// Form/InputOpt
-$inputOptFontSize: 1.5rem;
+$inputSwitchSliderOffHoverBg: $surface-400;
+$inputSwitchSliderOnBg: $surface-900;
+$inputSwitchSliderOnHoverBg: $surface-800;
+$inputSwitchHandleOnBg: $surface-50;
 
 // Form/ToggleButton
-$toggleButtonBg: $black-10;
+$toggleButtonBg: $tertiaryColor;
 $toggleButtonBorderColor: $surface-transparent;
 $toggleButtonBorder: 1px solid trasparent;
-$toggleButtonTextColor: $textSecondaryColor;
-$toggleButtonIconColor: $textSecondaryColor;
-$toggleButtonHoverBg: $primary-alpha;
+$toggleButtonTextColor: $textColor;
+$toggleButtonIconColor: $textColor;
+$toggleButtonHoverBg: $tertiaryColorHover;
 $toggleButtonHoverBorderColor: $surface-transparent;
-$toggleButtonHoverTextColor: $primaryColor;
-$toggleButtonIconHoverColor: $primaryColor;
-$toggleButtonActiveBg: $primaryColor;
+$toggleButtonHoverTextColor: $textColor;
+$toggleButtonIconHoverColor: $textColor;
+$toggleButtonActiveBg: $secondaryColor;
 $toggleButtonActiveBorderColor: $surface-transparent;
-$toggleButtonActiveTextColor: $primaryColorText;
-$toggleButtonIconActiveColor: $primaryColorText;
-$toggleButtonActiveHoverBg: $primaryColorHover;
+$toggleButtonActiveTextColor: $white-100;
+$toggleButtonIconActiveColor: $white-100;
+$toggleButtonActiveHoverBg: $secondaryColorHover;
 $toggleButtonActiveHoverBorderColor: $surface-transparent;
-$toggleButtonTextActiveHoverColor: $primaryColorText;
-$toggleButtonIconActiveHoverColor: $primaryColorText;
+$toggleButtonTextActiveHoverColor: $white-100;
+$toggleButtonIconActiveHoverColor: $white-100;
 
 // Form/Rating
 $ratingIconFontSize: 1.25rem;
 $ratingCancelIconColor: $textSecondaryColor;
 $ratingCancelIconHoverColor: $textColor;
 $ratingStarIconOffColor: $textSecondaryColor;
-$ratingStarIconOnColor: $warning-400;
-$ratingStarIconHoverColor: $warning-500;
+$ratingStarIconOnColor: $warning-500;
+$ratingStarIconHoverColor: $warning-400;
+
+// Form/InputOpt
+$inputOptFontSize: 1.5rem;
 
 // Panel/ScrollPanel
-$scrollPanelTrackBg: $black-10;
+$scrollPanelTrackBg: $tertiaryColor;
 $scrollPanelTrackBorder: 0 none;
 
 // Panel/Divider
 $dividerHorizontalMarginTopBottom: 1rem;
 $dividerHorizontalMarginLeftRight: 0rem;
-$dividerHorizontalMargin: $dividerHorizontalMarginTopBottom $dividerHorizontalMarginLeftRight;
+$dividerHorizontalMargin: $dividerHorizontalMarginTopBottom
+  $dividerHorizontalMarginLeftRight;
 $dividerHorizontalPaddingTopBottom: 0rem;
 $dividerHorizontalPaddingLeftRight: 1rem;
-$dividerHorizontalPadding: $dividerHorizontalPaddingTopBottom $dividerHorizontalPaddingLeftRight;
+$dividerHorizontalPadding: $dividerHorizontalPaddingTopBottom
+  $dividerHorizontalPaddingLeftRight;
 $dividerVerticalMarginTopBottom: 0rem;
 $dividerVerticalMarginLeftRight: 1rem;
-$dividerVerticalMargin: $dividerVerticalMarginTopBottom $dividerVerticalMarginLeftRight;
+$dividerVerticalMargin: $dividerVerticalMarginTopBottom
+  $dividerVerticalMarginLeftRight;
 $dividerVerticalPaddingTopBottom: 1rem;
 $dividerVerticalPaddingLeftRight: 0rem;
-$dividerVerticalPadding: $dividerVerticalPaddingTopBottom $dividerVerticalPaddingLeftRight;
+$dividerVerticalPadding: $dividerVerticalPaddingTopBottom
+  $dividerVerticalPaddingLeftRight;
 $dividerSize: 1px;
+$dividerBackgroundHighlight: $surface-card;
 
 // Panel/TabView
 $tabviewNavBg: $surface-transparent;
@@ -498,18 +528,19 @@ $tabviewHeaderBorderWidth: 0.25rem;
 $tabviewHeaderBorderColor: $surface-transparent;
 $tabviewHeaderBorder: $tabviewHeaderBorderWidth solid $tabviewHeaderBorderColor;
 $tabviewHeaderBg: $surface-transparent;
-$tabviewHeaderTextColor: $textColor;
+$tabviewHeaderTextColor: $textSecondaryColor;
 $tabviewHeaderFontWeight: normal;
 $tabviewHeaderPaddingTopBottom: 1rem;
 $tabviewHeaderPaddingLeftRight: 0rem;
-$tabviewHeaderPadding: $tabviewHeaderPaddingTopBottom $tabviewHeaderPaddingLeftRight;
+$tabviewHeaderPadding: $tabviewHeaderPaddingTopBottom
+  $tabviewHeaderPaddingLeftRight;
 $tabviewHeaderMargin: 0;
 $tabviewHeaderHoverBg: $surface-transparent;
 $tabviewHeaderHoverBorderColor: $surface-transparent;
-$tabviewHeaderHoverTextColor: $primaryColor;
+$tabviewHeaderHoverTextColor: $secondaryColorHover;
 $tabviewHeaderActiveBg: $surface-transparent;
-$tabviewHeaderActiveBorderColor: $primaryColor;
-$tabviewHeaderActiveTextColor: $primaryColor;
+$tabviewHeaderActiveBorderColor: $textColor;
+$tabviewHeaderActiveTextColor: $primaryColorText;
 $tabviewContentBorder: none;
 $tabviewContentBg: $surface-transparent;
 $tabviewContentTextColor: $textColor;
@@ -518,12 +549,13 @@ $tabviewContentPadding: $tabviewHeaderPadding;
 // Panel/Panel/Header
 $panelHeaderBorderColor: $surface-border;
 $panelHeaderBorder: 1px solid $panelHeaderBorderColor;
-$panelHeaderBg: $surface-ground;
+$panelHeaderBg: $surface-card;
 $panelHeaderTextColor: $textColor;
 $panelHeaderFontWeight: bold;
 $panelHeaderPaddingTopBottom: $dialogHeaderPaddingTopBottom;
 $panelHeaderPaddingLeftRight: $dialogHeaderPaddingLeftRight;
-$panelHeaderPadding: $panelHeaderPaddingLeftRight $panelHeaderPaddingLeftRight $panelHeaderPaddingTopBottom;
+$panelHeaderPadding: $panelHeaderPaddingLeftRight $panelHeaderPaddingLeftRight
+  $panelHeaderPaddingTopBottom;
 $panelToggleableHeaderPadding: 0rem;
 $panelHeaderHoverBg: #ffffff;
 $panelHeaderHoverBorderColor: #ffffff;
@@ -558,7 +590,7 @@ $toastDetailMargin: 0rem;
 // Misc/ProgressBar
 $progressBarHeight: 1rem;
 $progressBarBorder: none;
-$progressBarBg: $black-10;
+$progressBarBg: $gray-200;
 $progressBarValueBg: $primaryColor;
 $progressBarValueTextColor: $primaryColorText;
 
@@ -569,44 +601,45 @@ $sliderHorizontalHeight: 0.25rem;
 $sliderVerticalWidth: 0.25rem;
 $sliderHandleWidth: 1.25rem;
 $sliderHandleHeight: 1.25rem;
-$sliderHandleBg: $primaryColor;
-$sliderHandleHoverBg: $primaryColorHover;
+$sliderHandleBg: $inputBg;
+$sliderHandleHoverBg: $secondaryColor;
+$sliderHandleBorder: $secondaryColor;
 $sliderHandleBorderRadius: 1rem;
-$sliderHandleHoverBorderColor: $surface-transparent;
-$sliderHandleBorder: none;
-$sliderRangeBg: $primaryColor;
+$sliderHandleHoverBorderColor: $secondaryColor;
+$sliderRangeBg: $secondaryColor;
 
 // Form/SelectButton
-$selectButtonGroupBg: $black-10;
+$selectButtonGroupBg: $gray-200;
 $selectButtonGroupPadding: 0.25rem;
 $selectButtonBg: $surface-transparent;
 $selectButtonBorderColor: $surface-transparent;
 $selectButtonBorder: 1px solid trasparent;
-$selectButtonBorderRadius: 0.25rem;
-$selectButtonTextColor: $textSecondaryColor;
+$selectButtonBorderRadius: $borderRadiusLG;
+$selectButtonTextColor: $surface-700;
 $selectButtonIconColor: $textSecondaryColor;
 $selectButtonHoverBg: $surface-ground;
 $selectButtonHoverBorderColor: $surface-transparent;
 $selectButtonHoverTextColor: $textColor;
 $selectButtonIconHoverColor: $textColor;
-$selectButtonActiveBg: $surface-ground;
+$selectButtonActiveBg: $surface-card;
 $selectButtonActiveBorderColor: $surface-transparent;
-$selectButtonActiveTextColor: $primaryColor;
-$selectButtonIconActiveColor: $primaryColor;
-$selectButtonActiveHoverBg: $surface-ground;
+$selectButtonActiveTextColor: $textColor;
+$selectButtonIconActiveColor: $textColor;
+$selectButtonActiveHoverBg: $selectButtonActiveBg;
 $selectButtonActiveHoverBorderColor: $surface-transparent;
 $selectButtonTextActiveHoverColor: $textColor;
 $selectButtonIconActiveHoverColor: $textColor;
 
 // Form/Listbox
-$inputListBg: $overlayContentBg;
+$inputListBg: $inputBg;
 $inputListTextColor: $menuTextColor;
 $inputListBorderColor: $overlayContentBorderColor;
 $inputListBorder: 1px solid $inputListBorderColor;
 $inputListPadding: $verticalMenuPadding;
 $inputListItemPaddingTopBottom: $menuitemPaddingTopBottom;
 $inputListItemPaddingLeftRight: $menuitemPaddingLeftRight;
-$inputListItemPadding: $inputListItemPaddingTopBottom $inputListItemPaddingLeftRight;
+$inputListItemPadding: $inputListItemPaddingTopBottom
+  $inputListItemPaddingLeftRight;
 $inputListItemMargin: $menuSeparatorMargin;
 $inputListItemBorderColor: $menuitemBorderColor;
 $inputListItemBorder: 1px solid $inputListItemBorderColor;
@@ -624,78 +657,93 @@ $inputListHeaderBg: $submenuHeaderBg;
 $inputListHeaderTextColor: $submenuHeaderTextColor;
 $inputListHeaderBorderColor: $submenuHeaderBorderColor;
 $inputListHeaderBorder: 1px solid $inputListHeaderBorderColor;
-$listItemTransition: .2s;
+$listItemTransition: 0.2s;
 
 // Form/Overlay
-$inputOverlayBg: $inputListBg;
+$inputOverlayBg: $inputBg;
 $inputOverlayHeaderBg: $inputListHeaderBg;
 $inputOverlayBorderColor: $inputListBorderColor;
 $inputOverlayBorder: 1px solid $inputOverlayBorderColor;
 $inputOverlayShadowColor: $black-20;
-$inputOverlayShadow: 0 $focusShadowWidth $focusShadowWidth 0 $inputOverlayShadowColor;
+$inputOverlayShadow: 0 $focusShadowWidth $focusShadowWidth 0
+  $inputOverlayShadowColor;
 
 // Form/Password
 $passwordMeterBg: $progressBarBg;
-$passwordWeakBg: $danger-400;
-$passwordMediumBg: $warning-400;
-$passwordStrongBg: $success-400;
+$passwordWeakBg: $danger-500;
+$passwordMediumBg: $warning-500;
+$passwordStrongBg: $success-600;
 
 // Form/Calendar
 $calendarTableMargin: 0rem;
 $calendarPadding: 0.75rem;
-$calendarBg: $inputListBg;
+$calendarBg: var(--content-background);
+$calendarShadow: var(--shadow-400);
 $calendarInlineBg: $calendarBg;
-$calendarTextColor: $inputListTextColor;
+$calendarTextColor: $textColor;
+$calendarElementsBorder: 1px solid var(--form-borderColor);
 $calendarBorderColor: $inputListBorderColor;
 $calendarBorder: 1px solid $calendarBorderColor;
 $calendarOverlayBorderColor: $inputOverlayBorderColor;
 $calendarOverlayBorder: 1px solid $calendarOverlayBorderColor;
-$calendarHeaderPaddingBottom: 0.5rem;
-$calendarHeaderPadding: 0 0 $calendarHeaderPaddingBottom;
+$calendarHeaderPadding: $calendarPadding;
 $calendarHeaderBg: $inputListHeaderBg;
 $calendarInlineHeaderBg: $calendarBg;
 $calendarHeaderBorder: none;
-$calendarHeaderTextColor: $inputListHeaderTextColor;
+$calendarHeaderTextColor: $textColor;
 $calendarHeaderFontWeight: bold;
 $calendarHeaderCellPadding: 0.25rem;
-$calendarMonthYearHeaderHoverTextColor: $primaryColor;
+$calendarHeaderCellBorder: $calendarElementsBorder;
+$calendarHeaderCellBorderRadius: var(--borderRadius-300);
+$calendarContainerPadding: $calendarPadding;
+$calendarContainerBorderTop: $calendarElementsBorder;
+$calendarMonthYearHeaderHoverTextColor: $textColor;
 $calendarCellDatePadding: 0.25rem;
 $calendarCellDateWidth: 2rem;
 $calendarCellDateHeight: 2rem;
-$calendarCellDateBorderRadius: $borderRadius;
-$calendarCellDateBorderColor: $surface-transparent;
-$calendarCellDateBorder: 1px solid $calendarCellDateBorderColor;
-$calendarCellDateHoverBg: $surface-hover;
+$calendarCellDateBorderRadius: var(--borderRadius-200);
+$calendarCellDateBorder: none;
+$calendarCellDateTextColor: var(--content-color);
+$calendarCellDateHoverBg: var(--content-hoverBackground);
 $calendarCellDateHoverText: $textColor;
+$calendarCellDateHighlightTextColor: var(--text-extend-colorInverted);
+$calendarCellDateHighlightBg: var(--highlight-background);
+$calendarCellDateHighlightHoverBg: var(--surface-800);
 $calendarCellDateTodayBg: $surface-transparent;
-$calendarCellDateTodayBorderColor: $surface-hover;
+$calendarCellDateTodayBorderColor: var(--calendar-cell-today-border-color);
 $calendarCellDateTodayTextColor: $calendarTextColor;
-$calendarButtonBarPaddingTop: 0rem;
-$calendarButtonBarPadding: $calendarButtonBarPaddingTop 0 0;
-$calendarTimePickerPadding: String value;
-$calendarTimePickerElementPadding: String value;
+$calendarCellDateTodayHighlightTextColor: var(--text-extend-colorInverted);
+$calendarCellDateTodayHighlightBg: var(--highlight-background);
+$calendarCellDateTodayHighlightHoverBg: var(--surface-800);
+$calendarButtonBarPadding: $calendarPadding;
+$calendarButtonBarBorderTop: $calendarElementsBorder;
+$calendarTimePickerPadding: 0.25rem;
+$calendarTimePickerBorderTop: $calendarElementsBorder;
+$calendarTimePickerButtonColor: var(--content-color);
+$calendarTimePickerButtonBorderRadius: var(--borderRadius-200);
+$calendarTimePickerElementPadding: 0rem; // TODO value и почему-то удалены в ДС 2.0 но используются в теме
 $calendarTimePickerTimeFontSize: 1.25rem;
 $calendarBreakpoint: 769px;
 $calendarCellDatePaddingSM: 0.25rem;
 
 // Button/Severity/Warning/Outlined
 $warningOutlinedButtonBg: $surface-transparent;
-$warningOutlinedButtonTextColor: $warningButtonBg;
-$warningOutlinedButtonBorderColor: $warning-200;
+$warningOutlinedButtonTextColor: $warning-500;
+$warningOutlinedButtonBorderColor: $warning-500;
 $warningOutlinedButtonHoverBg: $surface-transparent;
-$warningOutlinedButtonHoverTextColor: $warningButtonBg;
-$warningOutlinedButtonHoverBorderColor: $warningButtonBg;
+$warningOutlinedButtonHoverTextColor: $warning-600;
+$warningOutlinedButtonHoverBorderColor: $warning-600;
 $warningOutlinedButtonActiveBg: $surface-transparent;
-$warningOutlinedButtonActiveTextColor: $warningButtonBg;
-$warningOutlinedButtonActiveBorderColor: $warning-200;
+$warningOutlinedButtonActiveTextColor: $warning-500;
+$warningOutlinedButtonActiveBorderColor: $warning-500;
 
 // Button/Severity/Warning/Text
-$warningTextButtonBg: $surface-ground;
-$warningTextButtonTextColor: $warningButtonBg;
-$warningTextButtonHoverBg: $warning-alpha;
-$warningTextButtonHoverTextColor: $warningButtonBg;
-$warningTextButtonActiveBg: $surface-ground;
-$warningTextButtonActiveTextColor: $warningButtonBg;
+$warningTextButtonBg: $surface-transparent;
+$warningTextButtonTextColor: $warning-500;
+$warningTextButtonHoverBg: $warning-100;
+$warningTextButtonHoverTextColor: $warning-600;
+$warningTextButtonActiveBg: $surface-transparent;
+$warningTextButtonActiveTextColor: $warningTextButtonTextColor;
 
 // Message/Messages
 $messageMargin: 0rem;
@@ -712,41 +760,50 @@ $messageTextDetailFontSize: 0.875rem;
 $messageTextDetailFontWeight: normal;
 $messageTextDetailColor: $textSecondaryColor;
 
-// Message/InlineMessage
+// tree
+$treeContainerPadding: 0.286rem !default;
+$treeNodePadding: 0.143rem !default;
+$treeNodeContentPadding: 0.5rem !default;
+$treeNodeChildrenPadding: 0 0 0 1rem !default;
+$treeNodeIconColor: $gray-600 !default;
+
+// inline message (primereact/message)
 $inlineMessagePadding: 1rem;
 $inlineMessageMargin: 0rem;
-$inlineMessageIconFontSize: 2rem;
+$inlineMessageIconFontSize: 1rem;
 $inlineMessageTextFontSize: 1rem;
-$inlineMessageBorderWidth: 0.25rem;
+$inlineMessageBorderWidth: 0;
 
-// Message/Severities/Info
-$infoMessageBg: $info-50;
+$infoMessageBg: $info-100;
 $infoMessageBorderColor: $info-200;
 $infoMessageBorder: 1px solid $infoMessageBorderColor;
-$infoMessageIconColor: $info-400;
-$infoMessageTextColor: $textColor;
+$infoMessageIconColor: $info-500;
+$infoMessageTextColor: $info-500;
 
-// Message/Severities/Success
-$successMessageBg: $success-50;
+$successMessageBg: $success-100;
 $successMessageBorderColor: $success-200;
 $successMessageBorder: 1px solid $successMessageBorderColor;
-$successMessageIconColor: $success-400;
-$successMessageTextColor: $textColor;
+$successMessageIconColor: $success-500;
+$successMessageTextColor: $success-500;
 
-
-// Message/Severities/Warning
-$warningMessageBg: $warning-50;
+$warningMessageBg: $warning-100;
 $warningMessageBorderColor: $warning-200;
 $warningMessageBorder: 1px solid $warningMessageBorderColor;
-$warningMessageIconColor: $warning-400;
-$warningMessageTextColor: $textColor;
+$warningMessageIconColor: $warning-500;
+$warningMessageTextColor: $warning-500;
 
-// Message/Severities/Danger
+$errorMessageBg: $danger-100;
+$errorMessageBorderColor: $danger-200;
+$errorMessageBorder: 1px solid $errorMessageBorderColor;
+$errorMessageIconColor: $danger-500;
+$errorMessageTextColor: $danger-500;
+
+// Message/Severities/Error
 $dangerMessageBg: $danger-50;
 $dangerMessageBorderColor: $danger-200;
 $dangerMessageBorder: 1px solid $dangerMessageBorderColor;
-$dangerMessageIconColor: $danger-400;
-$dangerMessageTextColor: $textColor;
+$dangerMessageIconColor: $danger-500;
+$dangerMessageTextColor: $danger-500;
 
 // Data/Paginator
 $paginatorBg: $surface-transparent;
@@ -762,10 +819,13 @@ $paginatorElementHeight: 2.5rem;
 $paginatorElementBorderColor: $surface-transparent;
 $paginatorElementBorder: 1px solid $paginatorElementBorderColor;
 $paginatorElementBg: $actionIconBg;
-$paginatorElementIconColor: $actionIconColor;
+$paginatorElementCheckedBg: $secondaryColor;
+$paginatorElementCheckedHoverBg: $secondaryColorHover;
+$paginatorElementCheckedDisabledBg: $tertiaryColor;
+$paginatorElementIconColor: $textColor;
 $paginatorElementHoverBg: $actionIconHoverBg;
 $paginatorElementHoverBorderColor: $actionIconHoverBorderColor;
-$paginatorElementIconHoverColor: $actionIconHoverColor;
+$paginatorElementIconHoverColor: $textColor;
 $paginatorElementBorderRadius: $actionIconBorderRadius;
 $paginatorElementMargin: 0.25rem;
 $paginatorElementPadding: 0rem;
@@ -776,11 +836,11 @@ $tableDragHelperBg: $surface-100;
 $tableCellContentAlignment: left;
 $tableTopPaginatorBorderWidth: 1px 0 1px 0;
 $tableBottomPaginatorBorderWidth: 0 0 0 0;
-$tableScaleSM: .5;
+$tableScaleSM: 0.5;
 $tableScaleLG: 1.25;
 
 // Data/DataTable/Header
-$tableHeaderBorderColor: $surface-200;
+$tableHeaderBorderColor: $gray-200;
 $tableHeaderBorder: 1px solid $tableHeaderBorderColor;
 $tableHeaderBorderWidth: 0 0 1px 0;
 $tableHeaderBg: $surface-50;
@@ -791,7 +851,8 @@ $tableHeaderPaddingLeftRight: 1rem;
 $tableHeaderPadding: $tableHeaderPaddingTopBottom $tableHeaderPaddingLeftRight;
 $tableHeaderCellPaddingTopBottom: $tableHeaderPaddingTopBottom;
 $tableHeaderCellPaddingLeftRight: $tableHeaderPaddingLeftRight;
-$tableHeaderCellPadding: $tableHeaderCellPaddingTopBottom $tableHeaderCellPaddingLeftRight;
+$tableHeaderCellPadding: $tableHeaderCellPaddingTopBottom
+  $tableHeaderCellPaddingLeftRight;
 $tableHeaderCellBg: $tableHeaderBg;
 $tableHeaderCellTextColor: $textColor;
 $tableHeaderCellIconColor: $textColor;
@@ -804,11 +865,11 @@ $tableHeaderCellTextHoverColor: $textColor;
 $tableHeaderCellIconHoverColor: $textColor;
 $tableHeaderCellHighlightBg: $surface-100;
 $tableHeaderCellHighlightTextColor: $textColor;
-$tableHeaderCellHighlightIconColor: $primaryColor;
+$tableHeaderCellHighlightIconColor: $primary-600;
 $tableSortableColumnBadgeSize: 1.25rem;
 
 // Data/DataTable/Body
-$tableBodyRowBg: $surface-ground;
+$tableBodyRowBg: $surface-card;
 $tableBodyRowTextColor: $textColor;
 $tableBodyRowEvenBg: $surface-50;
 $tableBodyRowHoverBg: $surface-100;
@@ -818,14 +879,16 @@ $tableBodyCellBorder: 1px solid $tableBodyCellBorderColor;
 $tableBodyCellBorderWidth: 0 0 1px 0;
 $tableBodyCellPaddingTopBottom: $tableHeaderCellPaddingTopBottom;
 $tableBodyCellPaddingLeftRight: $tableHeaderPaddingLeftRight;
-$tableBodyCellPadding: $tableBodyCellPaddingTopBottom $tableBodyCellPaddingLeftRight;
+$tableBodyCellPadding: $tableBodyCellPaddingTopBottom
+  $tableBodyCellPaddingLeftRight;
 $tableBodyCellHighlightBg: $surface-100;
 $tableBodyCellHighlightTextColor: $textColor;
 
 // Data/DataTable/Footer
 $tableFooterCellPaddingTopBottom: $tableHeaderCellPaddingTopBottom;
 $tableFooterCellPaddingLeftRight: $tableHeaderPaddingLeftRight;
-$tableFooterCellPadding: $tableFooterCellPaddingTopBottom $tableFooterCellPaddingLeftRight;
+$tableFooterCellPadding: $tableFooterCellPaddingTopBottom
+  $tableFooterCellPaddingLeftRight;
 $tableFooterCellBg: $tableHeaderBg;
 $tableFooterCellTextColor: $textColor;
 $tableFooterCellFontWeight: $tableHeaderFontWeight;
@@ -843,22 +906,25 @@ $tableFooterPaddingLeftRight: $tableHeaderPaddingLeftRight;
 $tableFooterPadding: $tableFooterPaddingTopBottom $tableFooterPaddingLeftRight;
 
 // Data/Timeline
-$timelineTextColor: $textColor;
+$timelineTextColor: $primaryColorText;
 $timelineEventMarkerWidth: 1rem;
 $timelineEventMarkerHeight: 1rem;
 $timelineEventMarkerBorderRadius: 8rem;
 $timelineEventConnectorSize: 1px;
-$timelineEventMarkerBorderColor: $primaryColor;
+$timelineEventMarkerBorderColor: $primary-600;
 $timelineEventMarkerBorderSize: 0.25rem;
-$timelineEventMarkerBorder: $timelineEventMarkerBorderSize solid $timelineEventMarkerBorderColor;
-$timelineEventMarkerBackground: $surface-ground;
+$timelineEventMarkerBorder: $timelineEventMarkerBorderSize solid
+  $timelineEventMarkerBorderColor;
+$timelineEventMarkerBackground: $surface-card;
 $timelineEventColor: $surface-border;
 $timelineVerticalEventContentPaddingTopBottom: 0rem;
 $timelineVerticalEventContentPaddingLeftRight: 0.5rem;
-$timelineVerticalEventContentPadding: $timelineVerticalEventContentPaddingTopBottom $timelineVerticalEventContentPaddingLeftRight;
+$timelineVerticalEventContentPadding: $timelineVerticalEventContentPaddingTopBottom
+  $timelineVerticalEventContentPaddingLeftRight;
 $timelineHorizontalEventContentPaddingTopBottom: 0.5rem;
 $timelineHorizontalEventContentPaddingLeftRight: 0rem;
-$timelineHorizontalEventContentPadding: $timelineHorizontalEventContentPaddingTopBottom $timelineHorizontalEventContentPaddingLeftRight;
+$timelineHorizontalEventContentPadding: $timelineHorizontalEventContentPaddingTopBottom
+  $timelineHorizontalEventContentPaddingLeftRight;
 
 // Media/Carousel
 $carouselIndicatorsPadding: 1rem;
@@ -879,7 +945,7 @@ $galleriaCloseIconHoverBg: $white-20;
 $galleriaCloseIconHoverColor: $white-80;
 $galleriaCloseIconWidth: 4rem;
 $galleriaCloseIconHeight: 4rem;
-$galleriaCloseIconBorderRadius: $borderRadius;
+$galleriaCloseIconBorderRadius: $borderRadius2XL;
 
 // Media/Galleria/Navigator
 $galleriaItemNavigatorBg: $surface-transparent;
@@ -890,7 +956,7 @@ $galleriaItemNavigatorHoverBg: $white-20;
 $galleriaItemNavigatorHoverColor: $white-80;
 $galleriaItemNavigatorWidth: 4rem;
 $galleriaItemNavigatorHeight: 4rem;
-$galleriaItemNavigatorBorderRadius: $borderRadius;
+$galleriaItemNavigatorBorderRadius: $borderRadius2XL;
 
 // Media/Galleria/Caption
 $galleriaCaptionBg: $black-60;
@@ -913,7 +979,8 @@ $galleriaIndicatorActiveBgOnItem: $white-80;
 $galleriaThumbnailContainerBg: $black-100;
 $galleriaThumbnailContainerPaddingTopBottom: 0.5rem;
 $galleriaThumbnailContainerPaddingLeftRight: 0.5rem;
-$galleriaThumbnailContainerPadding: $galleriaThumbnailContainerPaddingTopBottom $galleriaThumbnailContainerPaddingLeftRight;
+$galleriaThumbnailContainerPadding: $galleriaThumbnailContainerPaddingTopBottom
+  $galleriaThumbnailContainerPaddingLeftRight;
 $galleriaThumbnailNavigatorBg: $surface-transparent;
 $galleriaThumbnailNavigatorColor: $white-60;
 $galleriaThumbnailNavigatorHoverBg: $white-20;
@@ -923,7 +990,7 @@ $galleriaThumbnailNavigatorWidth: $actionIconWidth;
 $galleriaThumbnailNavigatorHeight: $actionIconHeight;
 
 // Panel/Stepper
-$stepsItemBg: $surface-ground;
+$stepsItemBg: $surface-transparent;
 $stepsItemBorderColor: $surface-border;
 $stepsItemBorder: 1px solid $stepsItemBorderColor;
 $stepsItemTextColor: $textColor;
@@ -934,37 +1001,34 @@ $stepsItemNumberFontSize: 1rem;
 $stepsItemNumberColor: $textColor;
 $stepsItemNumberBorderRadius: 8rem;
 
-// Panel/Accordion
-$accordionSpacing: 0rem;
-$accordionHeaderBorderColor: $surface-border;
-$accordionHeaderBorder: 1px solid $accordionHeaderBorderColor;
+// accordion
+$accordionSpacing: 0;
+$accordionHeaderPadding: 1rem 0rem;
+$accordionHeaderBorder: 1px solid var(--surface-300);
+$accordionHeaderTextColor: $textColor;
 $accordionHeaderBg: $surface-transparent;
-$accordionHeaderTextColor: $textSecondaryColor;
 $accordionHeaderFontWeight: 700;
-$accordionHeaderPaddingTopBottom: 1rem;
-$accordionHeaderPaddingLeftRIght: 0rem;
-$accordionHeaderPadding: $accordionHeaderPaddingTopBottom $accordionHeaderPaddingLeftRIght;
+
 $accordionHeaderHoverBg: $surface-transparent;
-$accordionHeaderHoverBorderColor: $surface-border;
-$accordionHeaderHoverTextColor: $textColor;
+$accordionHeaderHoverBorderColor: var(--surface-300);
+$accordionHeaderTextHoverColor: var(--text-hoverColor);
+
 $accordionHeaderActiveBg: $surface-transparent;
-$accordionHeaderActiveBorderColor: $surface-border;
-$accordionHeaderActiveTextColor: $textColor;
+$accordionHeaderActiveBorderColor: var(--surface-300);
+$accordionHeaderTextActiveColor: $textColor;
+
 $accordionHeaderActiveHoverBg: $surface-transparent;
-$accordionHeaderActiveHoverBorderColor: $surface-border;
-$accordionHeaderActiveHoverTextColor: $textColor;
-$accordionContentBorder: none;
+$accordionHeaderActiveHoverBorderColor: var(--surface-300);
+$accordionHeaderTextActiveHoverColor: var(--text-hoverColor);
+
+$accordionContentPadding: 0rem 1.75rem 1rem;
+$accordionContentBorder: 1px solid var(--surface-300);
 $accordionContentBg: $surface-transparent;
 $accordionContentTextColor: $textColor;
-$accordionContentPaddingTop: 0rem;
-$accordionContentPaddingRight: 0rem;
-$accordionContentPaddingBottom: 1rem;
-$accordionContentPaddingLeft: 1.75rem;
-$accordionContentPadding: $accordionContentPaddingTop $accordionContentPaddingRight $accordionContentPaddingBottom $accordionContentPaddingLeft;
 
 // Panel/Card
-$cardBg: $surface-ground;
-$cardBorderRadius: $borderRadius;
+$cardBg: $surface-card;
+$cardBorderRadius: $borderRadius2XL;
 $cardBorderColor: $surface-border;
 $cardBorder: 1px solid $cardBorderColor;
 $cardTextColor: $textColor;
@@ -980,3 +1044,84 @@ $cardContentPadding: $cardContentPaddingTop 0 0;
 $cardFooterPaddingTop: 1rem;
 $cardFooterPadding: $cardFooterPaddingTop 0 0;
 $cardShadow: $overlayContainerShadow;
+
+// avatar
+$avatarBorderRadius: var(--borderRadius-200);
+$avatarBg: $primaryColor;
+$avatarTextColor: var(--text-extend-colorPrimaryStatic);
+$avatarGroupAvatarBorder: 2px solid $surface-ground;
+
+// badge
+$badgeBg: $primaryColor;
+$badgeTextColor: var(--text-extend-colorPrimaryStatic);
+$badgeMinWidth: 1.5rem;
+$badgeHeight: 1.5rem;
+$badgeFontSize: 0.75rem;
+$badgeDotSize: 0.5rem;
+$badgeFontWeight: 400;
+$badgeSuccessTextColor: var(--success-900);
+$badgeSuccessBg: var(--success-300);
+$badgeDotSuccessBg: var(--green-400);
+$badgeInfoTextColor: var(--info-900);
+$badgeInfoBg: var(--info-300);
+$badgeDotInfoBg: var(--info-400);
+$badgeWarningTextColor: var(--warn-900);
+$badgeWarningBg: var(--warn-300);
+$badgeDotWarningBg: var(--warn-400);
+$badgeDangerTextColor: var(--error-900);
+$badgeDangerBg: var(--error-300);
+$badgeDotDangerBg: var(--error-400);
+$badgeSecondaryTextColor: var(--text-color);
+$badgeSecondaryBg: var(--surface-200);
+$badgeDotSecondaryBg: var(--surface-300);
+
+// breadcrumb
+$breadcrumbPadding: 0rem;
+$breadcrumbBg: $surface-transparent;
+$breadcrumbBorder: none;
+$breadcrumbItemBorderRadius: var(--borderRadius-100);
+$breadcrumbItemHoverBg: var(--surface-100);
+$breadcrumbItemTextColor: $textColor;
+$breadcrumbItemIconColor: $textColor;
+$breadcrumbLastItemTextColor: $textColor;
+$breadcrumbLastItemIconColor: $textColor;
+$breadcrumbSeparatorColor: $textColor;
+
+// divider
+$dividerContentBg: var(--content-background);
+$dividerContentTextColor: $surface-500;
+
+// panelmenu
+$menuitemTextActiveColor: $primaryColorText;
+$menuitemIconActiveColor: $primaryColorText;
+$menuitemActiveFocusBg: $primary-100;
+$menuitemTextFocusColor: $white-100;
+$menuitemIconFocusColor: $white-100;
+$menuitemTextHoverColor: $gray-1000;
+$menuitemIconHoverColor: $gray-1000;
+
+$panelmenuHeaderBorder: 1px solid $surface-transparent;
+$panelmenuHeaderPadding: 0.5rem 0.75rem;
+$panelmenuHeaderFontWeight: 400;
+
+$panelmenuHeaderHoverBg: var(--navigation-item-focusBackground);
+$panelmenuHeaderHoverBorderColor: $surface-transparent;
+
+$panelmenuHeaderActiveBg: var(--surface-900);
+$panelmenuHeaderActiveBorderColor: $surface-transparent;
+$panelmenuHeaderTextActiveColor: var(--navigation-item-activeColor);
+
+$panelmenuHeaderActiveHoverBg: var(--surface-800);
+$panelmenuHeaderActiveHoverBorderColor: $surface-transparent;
+
+$panelmenuItemActiveBg: var(--surface-900);
+$panelmenuItemTextActiveColor: var(--navigation-item-activeColor);
+
+$panelmenuItemActiveHoverBg: var(--surface-800);
+$panelmenuItemTextActiveHoverColor: var(--navigation-item-activeColor);
+
+// tag
+$tagTextColor: var(--text-color);
+$tagPadding: 0.25rem 0.5rem;
+$tagFontSizeBase: 1rem;
+$tagSuccessBg: var(--success-400);

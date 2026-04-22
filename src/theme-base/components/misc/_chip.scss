@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use "sass:list";
 
 .p-chip {
     height: $chipHeight;
@@ -20,8 +21,8 @@
 
     .p-chip-text {
         line-height: 1.5;
-        margin-top: math.div(nth($inputPadding, 1), 2);
-        margin-bottom: math.div(nth($inputPadding, 1), 2);
+        margin-top: math.div(list.nth($inputPadding, 1), 2);
+        margin-bottom: math.div(list.nth($inputPadding, 1), 2);
     }
 
     .p-chip-icon {
@@ -29,9 +30,9 @@
     }
 
     img {
-        width: 1.5 + nth($inputPadding, 1);
-        height: 1.5 + nth($inputPadding, 1);
-        margin-left: -1 * nth($inputPadding, 2);
+        width: 1.5 + list.nth($inputPadding, 1);
+        height: 1.5 + list.nth($inputPadding, 1);
+        margin-left: -1 * list.nth($inputPadding, 2);
         margin-right: $inlineSpacing;
     }
 
