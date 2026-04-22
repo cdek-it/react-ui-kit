@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:list";
 
 // core
 .p-chips {
@@ -105,7 +106,7 @@
         }
 
         .p-chips-input-token {
-            padding: math.div(nth($inputPadding, 1), 2) 0;
+            padding: math.div(list.nth($inputPadding, 1), 2) 0;
 
             input {
                 height: $chipHeight;

@@ -1,11 +1,10 @@
-@import "_fonts";
-@import "_colors";
-@import "_generator";
-@import "_global";
-@import "_primary";
-@import "_variables";
-@import "_root";
-@import "_media-query";
+@use "fonts";
+@use "media-query";
+@import "global";
+@import "variables";
+@import "../../tokens/primitives";
+@import "../../tokens/theme"; // пока перед текущим root для совместимости
+@import "root";
 @import "../../theme-base/_mixins";
 @import "../../theme-base/_common";
 
@@ -53,6 +52,7 @@
 @import "../../theme-base/components/misc/_badge";
 @import "../../theme-base/components/misc/_tag";
 @import "../../theme-base/components/misc/_progressbar";
+@import "../../theme-base/components/misc/_progressspinner";
 @import "../../theme-base/components/misc/_metergroup";
 @import "../../theme-base/components/misc/_chip";
 @import "../../theme-base/components/misc/_skeleton";
@@ -86,3 +86,4 @@
 @import "_icons";
 @import "_list";
 @import "_scroll";
+@import "_extend-theme";

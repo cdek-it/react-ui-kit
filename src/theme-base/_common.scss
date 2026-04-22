@@ -79,13 +79,13 @@ html {
             background-color: transparent;
         }
         to {
-            background-color: var(--maskbg);
+            background-color: var(--mask-background);
         }
     }
-    
+
     @keyframes p-component-overlay-leave-animation {
         from {
-            background-color: var(--maskbg);
+            background-color: var(--mask-background);
         }
         to {
             background-color: transparent;

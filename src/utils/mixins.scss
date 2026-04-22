@@ -11,7 +11,7 @@
 }
 
 @mixin media-min-lg {
-  @media screen and (min-width: 1200px) {
+  @media screen and (min-width: 1024px) {
     @content;
   }
 }
@@ -23,7 +23,7 @@
 }
 
 @mixin media-min-2xl {
-  @media screen and (min-width: 1536px) {
+  @media screen and (min-width: 1440px) {
     @content;
   }
 }

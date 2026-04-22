@@ -1,4 +1,5 @@
 @use 'sass:math';
+@use "sass:list";
 
 .p-overlaypanel {
     background: $overlayContentBg;
@@ -39,7 +40,7 @@
         border: solid transparent;
         border-width: 8px;
 
-        @if (nth($overlayContentBorder, 2) == 'none') {
+        @if (list.nth($overlayContentBorder, 2) == 'none') {
             border-color: transparent;
             border-bottom-color: $overlayContentBorderColor;
         }
@@ -56,12 +57,12 @@
         }
 
         &:before {
-            @if (nth($overlayContentBorder, 2) == 'none') {
+            @if (list.nth($overlayContentBorder, 2) == 'none') {
                 border-top-color: $overlayContentBorder;
                 border-bottom-color: transparent;
             }
             @else {
-                border-top-color: nth($overlayContentBorder, 3);
+                border-top-color: list.nth($overlayContentBorder, 3);
                 border-bottom-color: transparent;
             }
         }

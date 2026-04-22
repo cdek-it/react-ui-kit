@@ -1,61 +1,58 @@
-@use "sass:math";
-
 .p-breadcrumb {
-	background: $breadcrumbBg;
-	border: $breadcrumbBorder;
-	padding: $breadcrumbPadding;
+  background: $breadcrumbBg;
+  border: $breadcrumbBorder;
+  //   border-radius: $borderRadius;
+  padding: $breadcrumbPadding;
 
-	.p-breadcrumb-list {
-		li {
-			.p-menuitem-link {
-				transition: $listItemTransition;
+  .p-breadcrumb-list {
+    li {
+      .p-menuitem-link {
+        transition: $listItemTransition;
+        border-radius: $breadcrumbItemBorderRadius;
+        padding: 0.25rem;
 
-				border-radius: $menuitemBorderRadius;
-				padding: .25rem;
+        &:focus-visible {
+          @include focused();
+        }
 
-				&:focus-visible {
-					@include focused();
-				}
+        .p-menuitem-text {
+          color: $breadcrumbItemTextColor;
+        }
 
-				&:hover {
-					background-color: $menuitemHoverBg;
-					.p-menuitem-text {
-						color: $menuitemHoverTextColor;
-					}
+        .p-menuitem-icon {
+          color: $breadcrumbItemIconColor;
+        }
 
-					.p-menuitem-icon {
-						color: $menuitemHoverIconColor;
-					}
-				}
+        &:hover {
+          background-color: $breadcrumbItemHoverBg;
 
-				.p-menuitem-text {
-					color: $breadcrumbItemTextColor;
-				}
+          .p-menuitem-text {
+            color: $menuitemHoverTextColor;
+          }
 
-				.p-menuitem-icon {
-					color: $breadcrumbItemIconColor;
-					font-size: $menuitemSubmenuIconFontSize;
-				}
-			}
+          .p-menuitem-icon {
+            color: $menuitemHoverIconColor;
+          }
+        }
+      }
 
-			&.p-menuitem-separator {
-				margin: 0 math.div($inlineSpacing, 2);
-				color: $breadcrumbSeparatorColor;
-				font-size: $menuitemSubmenuIconFontSize;
-			}
+      &.p-menuitem-separator {
+        margin: 0 0.25rem;
+        color: $breadcrumbSeparatorColor;
+      }
 
-			&:last-child {
-				pointer-events: none;				
-				opacity: .6;
+      &:last-child {
+        pointer-events: none;
+        opacity: 0.6;
 
-				.p-menuitem-text {
-					color: $breadcrumbLastItemTextColor;
-				}
+        .p-menuitem-text {
+          color: $breadcrumbLastItemTextColor;
+        }
 
-				.p-menuitem-icon {
-					color: $breadcrumbLastItemIconColor;
-				}
-			}
-		}
-	}
+        .p-menuitem-icon {
+          color: $breadcrumbLastItemIconColor;
+        }
+      }
+    }
+  }
 }
